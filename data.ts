@@ -9,16 +9,16 @@ export const features = [
 
 export const valueCards = [
   {
-    title: "Shield Your Family from Debt",
-    text: "Your loved ones won't have to worry about funeral costs or outstanding bills during an already difficult time. Benefits are paid directly to your beneficiary — no strings attached.",
+    title: "Protect Your Loved Ones from Debt",
+    text: "Final expense insurance covers funeral costs and bills, with benefits paid directly.Give your family the freedom to grieve without financial stress.",
   },
   {
-    title: "Cover Every Final Expense",
-    text: "The average funeral costs $8,300–$12,000. Final expense insurance ensures these costs are covered without draining savings or placing financial burden on the people you love most.",
+    title: "Protect Against Every Final Expense",
+    text: "Funeral costs range $8,300–$12,000. Insurance guarantees coverage, sparing loved ones from financial strain during difficult times.",
   },
   {
-    title: "Settle Outstanding Obligations",
-    text: "Medical bills, credit cards, and loans don't disappear after death. Your policy can help settle these obligations so they never fall on your family.",
+    title: "Lift the Burden from Family",
+    text: "Outstanding bills and debts don’t vanish. Your policy provides protection, ensuring obligations are managed without falling on loved ones.",
   },
 ];
 

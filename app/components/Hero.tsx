@@ -10,20 +10,17 @@ export default function Hero() {
           {/* Badge */}
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/50 px-4 py-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-400">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            No Medical Exam Required · Instant Coverage
-          </div>
+            Hassle-Free Sign-Up . Instant Benefits          </div>
 
           <h1 className="mb-5 text-4xl font-semibold leading-tight tracking-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
-            Protect Your Family from{" "}
+            Protect Your Legacy from {" "}
             <span className="text-emerald-600 dark:text-emerald-400">
-              $8,300+ Funeral Costs
-            </span>
+ $8,300+ Farewell Costs
+          </span>
           </h1>
 
           <p className="mb-8 text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
-            Final expense whole life insurance covers end-of-life costs so your loved ones
-            aren't left with unexpected bills. Fixed premiums, guaranteed acceptance,
-            and claim payouts within 24–72 hours.
+        Final expense insurance offers certainty-stable premiums, guaranteed coverage, and fast claim support.  
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function SiteFooter() {
   return (
     <footer className="border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 py-12 px-5">
@@ -6,12 +8,12 @@ export default function SiteFooter() {
           {/* Brand */}
           <div className="max-w-xs">
             <div className="mb-3 flex items-center gap-2">
-              <div className="h-7 w-7 rounded-lg bg-emerald-600 flex items-center justify-center">
-                <span className="text-white text-xs font-bold">FE</span>
-              </div>
-              <span className="text-base font-semibold text-gray-900 dark:text-white">
-                TopDog<span className="text-emerald-600">FE</span>
-              </span>
+              
+             <Image src="/logo1.png"
+             alt="logo"
+             width={100}
+             height={100}
+             />
             </div>
             <p className="text-xs text-gray-400 dark:text-gray-500 leading-relaxed">
               Licensed final expense insurance specialists helping families protect against

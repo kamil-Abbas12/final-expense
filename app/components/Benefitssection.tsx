@@ -8,11 +8,10 @@ export default function BenefitsSection() {
           Plan Highlights
         </div>
         <h2 className="mb-4 text-center text-3xl font-semibold tracking-tight text-gray-900 dark:text-white md:text-4xl">
-          Coverage built around simplicity
+Security crafted for simplicity
         </h2>
         <p className="mx-auto mb-14 max-w-xl text-center text-base text-gray-500 dark:text-gray-400">
-          No surprises, no fine print. Here's exactly what you get when you apply for
-          final expense coverage through TopDog FE.
+         Clear terms, clear benefits. Discover exactly what’s included when you choose TopDog Final Expense.
         </p>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -32,7 +31,7 @@ export default function BenefitsSection() {
         {/* CTA banner */}
         <div className="mt-12 rounded-2xl border border-emerald-100 dark:border-emerald-900 bg-gradient-to-r from-emerald-50 to-teal-50/60 dark:from-emerald-950/40 dark:to-teal-950/30 p-8 text-center">
           <p className="mb-4 text-base font-medium text-gray-800 dark:text-gray-200">
-            Ready to lock in your rate? It takes less than 10 minutes.
+            Ready to reserve your plan? It takes less than 10 minutes.
           </p>
           <a
             href="#quote-form"

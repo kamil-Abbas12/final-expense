@@ -8,11 +8,10 @@ export default function CoverageSection() {
           What's Covered
         </div>
         <h2 className="mb-4 text-center text-3xl font-semibold tracking-tight text-gray-900 dark:text-white md:text-4xl">
-          Comprehensive final expense coverage
+All-Inclusive Funeral Coverage  
         </h2>
         <p className="mx-auto mb-14 max-w-xl text-center text-base text-gray-500 dark:text-gray-400">
-          Your policy can be used for any end-of-life expense your family faces —
-          with no restrictions on how the benefit is spent.
+          Benefits can be applied to any end-of-life cost - with no restrictions whatsoever.Give your family the gift of freedom from financial worry when it matters most.
         </p>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

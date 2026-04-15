@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Moon, Sun, Phone } from "lucide-react";
 
@@ -39,23 +39,25 @@ export default function Header() {
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-emerald-600 flex items-center justify-center">
+<Image src="/logo1.png"
+alt="logo"
+width={100}
+height={100}
+/>
             <span className="text-white text-xs font-bold">FE</span>
-          </div>
-          <span className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
-            TopDog<span className="text-emerald-600">FE</span>
-          </span>
+      
+          
         </div>
 
         {/* Nav links — hidden on mobile */}
-        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-gray-500 dark:text-gray-400">
+        <nav className="hidden md:flex justify-between items-center gap-7 text-md font-medium text-gray-500 dark:text-gray-400">
           <a href="#coverage" className="hover:text-gray-900 dark:hover:text-white transition-colors">Coverage</a>
           <a href="#benefits" className="hover:text-gray-900 dark:hover:text-white transition-colors">Benefits</a>
           <a href="#faq" className="hover:text-gray-900 dark:hover:text-white transition-colors">FAQ</a>
         </nav>
 
         {/* Right side */}
-        <div className="flex items-center gap-3">
+        <div className="flex  items-center gap-3">
           <a
             href="tel:8669635898"
             className="hidden md:flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
@@ -81,5 +83,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  );
+    );
 }
