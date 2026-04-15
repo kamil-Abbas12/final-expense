@@ -21,7 +21,7 @@ export default function QuoteSection() {
             Free Quote
           </div>
           <h2 className="mb-3 text-center text-3xl font-semibold tracking-tight text-gray-900 dark:text-white md:text-4xl">
-            Get your personalized rate in minutes
+            Get your personalized plan in minutes
           </h2>
           <p className="mb-10 text-center text-base text-gray-500 dark:text-gray-400">
             No obligation, no spam. A licensed agent will contact you with options tailored to your needs.

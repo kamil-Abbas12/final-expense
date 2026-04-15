@@ -9,29 +9,23 @@ const STEPS = [
     question: "What is your zip code?",
     type: "zip" as const,
   },
-  {
-    id: "homeowner",
-    question: "Do you currently own your home?",
+{
+    id: "age",
+    question: "Are you between ages 50–79?",
     type: "choice" as const,
     options: ["Yes", "No"],
   },
   {
-    id: "provider",
-    question: "Who is your current life insurance provider?",
-    type: "list" as const,
-    options: [
-      "None — uninsured",
-      "State Farm",
-      "Mutual of Omaha",
-      "AARP / New York Life",
-      "Other",
-    ],
+    id: "medical",
+    question: "Do you have any major medical conditions?",
+    type: "choice" as const,
+    options: ["No", "Yes"], // order as you requested
   },
   {
-    id: "coverage",
-    question: "What coverage amount are you looking for?",
+    id: "checking",
+    question: "Do you have an active checking account?",
     type: "choice" as const,
-    options: ["$5,000 – $10,000", "$10,000 – $25,000"],
+    options: ["Yes", "No"],
   },
 ];
 
@@ -141,20 +135,7 @@ export default function QuizPopup() {
                 </div>
               )}
 
-              {current.type === "list" && (
-                <div className="flex flex-col gap-2">
-                  {"options" in current &&
-                    current.options.map((opt) => (
-                      <button
-                        key={opt}
-                        onClick={advance}
-                        className="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 px-4 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:border-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 hover:text-emerald-700 dark:hover:text-emerald-400 transition-all text-center"
-                      >
-                        {opt}
-                      </button>
-                    ))}
-                </div>
-              )}
+              
 
               <div className="mt-5 flex items-center justify-center gap-1.5 text-xs text-gray-400 dark:text-gray-500">
                 <Lock size={11} />

@@ -44,19 +44,19 @@ export default function Hero() {
               <svg className="h-4 w-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15 3.293 9.879a1 1 0 111.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-              A+ AM Best Rating
-            </span>
-            <span className="flex items-center gap-1.5">
-              <svg className="h-4 w-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15 3.293 9.879a1 1 0 111.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              BBB Accredited
+              A+ Rated Insurance Partners
             </span>
             <span className="flex items-center gap-1.5">
               <svg className="h-4 w-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15 3.293 9.879a1 1 0 111.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
               25+ Years Serving Families
+            </span>
+            <span className="flex items-center gap-1.5">
+              <svg className="h-4 w-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15 3.293 9.879a1 1 0 111.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+             Licensed & Trusted Nationwide
             </span>
           </div>
         </div>

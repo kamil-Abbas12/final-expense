@@ -16,8 +16,7 @@ export default function SiteFooter() {
              />
             </div>
             <p className="text-xs text-gray-400 dark:text-gray-500 leading-relaxed">
-              Licensed final expense insurance specialists helping families protect against
-              end-of-life costs for over 25 years.
+              Trusted final expense insurance specialists dedicated to protecting families from the burden of end‑of‑life costs for over years.
             </p>
           </div>
 

@@ -4,7 +4,7 @@ export const features = [
   { label: "No Medical Exam Required", icon: CheckCircle },
   { label: "Fixed Premiums for Life", icon: DollarSign },
   { label: "Guaranteed Acceptance", icon: ShieldCheck },
-  { label: "24–72 Hr Claim Payout", icon: Zap },
+  { label: "Fast payout for your loved ones", icon: Zap },
 ];
 
 export const valueCards = [
@@ -61,28 +61,30 @@ export const faqs = [
   {
     question: "What exactly is final expense insurance?",
     answer:
-      "Final expense insurance is a type of whole life insurance designed to cover end-of-life costs — funeral expenses, medical bills, and outstanding debts. Coverage typically ranges from $5,000 to $25,000 with fixed premiums that never change.",
+      "A simple life insurance policy designed to cover funeral, burial, and other end-of-life expenses.",
   },
   {
-    question: "Do I need a medical exam to qualify?",
+    question: "Do applicants have to complete a medical exam?",
     answer:
-      "No medical exam is required. You'll answer a few simple health questions over the phone or online. Many applicants with pre-existing conditions still qualify through our guaranteed acceptance plans.",
+      "No exam! Answer simple health questions and qualify-even with pre‑existing conditions",
   },
+   {
+    question: "Who can I appoint as my beneficiary?",
+    answer:
+      "Anyone - a spouse, child, sibling, friend, or even a charity. Benefits are paid directly to your named beneficiary and can be used for any purpose they choose.",
+  },
+ 
   {
-    question: "How quickly are claims paid out?",
+    question: "Will my premiums increase over time?",
     answer:
-      "Most claims are processed and paid within 24–72 hours of receiving documentation. Your beneficiaries get fast access to funds when they need them most — not weeks later.",
+      "Never. Your premium is locked for life, and your coverage stays the same - simple, predictable protection.",
   },
-  {
-    question: "Will my premiums ever go up?",
+   {
+    question: "How fast are claims processed and paid?",
     answer:
-      "Never. Once your premium is locked in, it stays the same for life. Your coverage amount also remains constant — predictable protection you can plan around.",
+      "Most claims are paid within 24-72 hours after documents are received — giving your beneficiaries quick access to funds.",
   },
-  {
-    question: "Who can I name as my beneficiary?",
-    answer:
-      "Anyone — a spouse, child, sibling, friend, or even a charity. Benefits are paid directly to your named beneficiary and can be used for any purpose they choose.",
-  },
+ 
 ];
 
 export const trustItems = [

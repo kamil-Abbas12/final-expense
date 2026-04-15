@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import ScrollToTopButton from "./components/ScrollToTop";
-import TrustSection from "./components/Trustsection";
 import FaqSection from "./components/Faqsection";
 import FeatureBanner from "./components/FeatureBanner";
 import ValueSection from "./components/ValueSection";
@@ -44,7 +43,6 @@ export default function HomePage() {
         <BenefitsSection />
         <QuoteSection />
         <FaqSection />
-        <TrustSection />
       </main>
 
       <SiteFooter />
