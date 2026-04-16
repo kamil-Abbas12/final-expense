@@ -5,10 +5,36 @@ import { useState } from "react";
 export default function QuoteSection() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  const form = e.target as HTMLFormElement;
+
+  const data = {
+    firstName: (form[0] as HTMLInputElement).value,
+    lastName: (form[1] as HTMLInputElement).value,
+    phone: (form[2] as HTMLInputElement).value,
+    dob: (form[3] as HTMLInputElement).value,
+    coverage: (form[4] as HTMLSelectElement).value,
+    tcpaConsent: (form.tcpa as HTMLInputElement).checked,
   };
+
+  const res = await fetch("/api/quote", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  const result = await res.json();
+
+  if (result.success) {
+    setSubmitted(true);
+  } else {
+    alert("Something went wrong");
+  }
+};
 
   return (
     <section

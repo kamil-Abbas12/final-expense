@@ -1,5 +1,14 @@
-import { CheckCircle, DollarSign, ShieldCheck, Zap } from "lucide-react";
-
+import { 
+  CheckCircle, 
+  DollarSign, 
+  ShieldCheck, 
+  Zap,
+  Heart,
+  FileText,
+  CreditCard,
+  Home,
+  Gift
+} from "lucide-react";
 export const features = [
   { label: "No Medical Exam Required", icon: CheckCircle },
   { label: "Fixed Premiums for Life", icon: DollarSign },
@@ -26,26 +35,32 @@ export const coverageItems = [
   {
     title: "Funeral & Burial Costs",
     text: "Casket, vault, burial plot, or cremation services",
+    icon: CheckCircle,
   },
   {
     title: "Memorial Services",
     text: "Flowers, reception, obituary, and ceremony fees",
+    icon: Heart,
   },
   {
     title: "Medical Bills",
     text: "Outstanding hospital and healthcare expenses",
+    icon: FileText,
   },
   {
     title: "Debt Repayment",
     text: "Credit cards, loans, and other obligations",
+    icon: CreditCard,
   },
   {
     title: "Household Expenses",
     text: "Rent, utilities, and daily living costs for your family",
+    icon: Home,
   },
   {
     title: "Anything Your Family Needs",
     text: "Flexible — beneficiary decides how funds are used",
+    icon: Gift,
   },
 ];
 
