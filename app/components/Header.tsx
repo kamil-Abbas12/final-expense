@@ -44,9 +44,8 @@ export default function Header() {
   alt="Finalexpense-logo"
   width={100}
   height={80}
-  className="dark:bg-white dark:rounded-md "
-/>
-      
+  className="dark:invert dark:brightness-0 dark:contrast-200"
+/>   
           
         </div>
 
