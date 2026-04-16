@@ -8,8 +8,10 @@ export default function Hero() {
       <div className="relative mx-auto max-w-7xl px-5">
         <div className="mx-auto max-w-3xl text-center">
           {/* Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/50 px-4 py-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-400">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-200
+           dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/50 px-4 py-1.5 text-md font-medium
+            text-emerald-700 dark:text-emerald-400 bg-emerald-600 hover:bg-emerald-700 px-8 py-4 text-base font-medium text-white">
+            <span className="h-1.5 w-1.5 rounded-full font-bold bg-green-800 text-white animate-pulse" />
             Hassle-Free Sign-Up . Instant Benefits          </div>
 
           <h1 className="mb-5 text-4xl font-semibold leading-tight tracking-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
@@ -26,7 +28,8 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="#quote-form"
-              className="w-full sm:w-auto inline-flex justify-center items-center rounded-xl bg-emerald-600 hover:bg-emerald-700 px-8 py-4 text-base font-medium text-white transition-all shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex justify-center items-center rounded-xl
+               bg-emerald-600 hover:bg-emerald-700 px-8 py-4 text-base font-medium text-white transition-all shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 hover:-translate-y-0.5"
             >
               Get Your Free Quote
             </a>

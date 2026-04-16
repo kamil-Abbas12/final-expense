@@ -4,40 +4,21 @@ import { useEffect, useState } from "react";
 import { X, Lock, Phone, CheckCircle } from "lucide-react";
 
 const STEPS = [
-  {
-    id: "zip",
-    question: "What is your zip code?",
-    type: "zip" as const,
-  },
-{
-    id: "age",
-    question: "Are you between ages 50–79?",
-    type: "choice" as const,
-    options: ["Yes", "No"],
-  },
-  {
-    id: "medical",
-    question: "Do you have any major medical conditions?",
-    type: "choice" as const,
-    options: ["No", "Yes"], // order as you requested
-  },
-  {
-    id: "checking",
-    question: "Do you have an active checking account?",
-    type: "choice" as const,
-    options: ["Yes", "No"],
-  },
+  { id: "zip", question: "What is your zip code?", type: "zip" as const },
+  { id: "age", question: "Are you between ages 50–79?", type: "choice" as const, options: ["Yes", "No"] },
+  { id: "medical", question: "Do you have any major medical conditions?", type: "choice" as const, options: ["No", "Yes"] },
+  { id: "checking", question: "Do you have an active checking account?", type: "choice" as const, options: ["Yes", "No"] },
 ];
 
 export default function QuizPopup() {
   const [visible, setVisible] = useState(false);
   const [step, setStep] = useState(0);
   const [zip, setZip] = useState("");
+  const [tcpa, setTcpa] = useState(false);
+  const [showTcpa, setShowTcpa] = useState(false);
   const [done, setDone] = useState(false);
 
-  useEffect(() => {
-    setVisible(true);
-  }, []);
+  useEffect(() => { setVisible(true); }, []);
 
   if (!visible) return null;
 
@@ -46,16 +27,20 @@ export default function QuizPopup() {
 
   const advance = () => {
     if (step + 1 >= STEPS.length) {
-      setDone(true);
+      setShowTcpa(true); // show TCPA consent before result
     } else {
       setStep((s) => s + 1);
     }
   };
 
+  const handleTcpaSubmit = () => {
+    setShowTcpa(false);
+    setDone(true);
+  };
+
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-900/70 px-4 backdrop-blur-sm">
       <div className="relative w-full max-w-md rounded-2xl bg-white dark:bg-gray-900 shadow-2xl">
-        {/* Close */}
         <button
           onClick={() => setVisible(false)}
           aria-label="Close"
@@ -67,6 +52,8 @@ export default function QuizPopup() {
         <div className="p-8">
           {done ? (
             <Result onClose={() => setVisible(false)} />
+          ) : showTcpa ? (
+            <TcpaStep tcpa={tcpa} setTcpa={setTcpa} onSubmit={handleTcpaSubmit} />
           ) : (
             <>
               {/* Badge */}
@@ -76,7 +63,7 @@ export default function QuizPopup() {
               </div>
 
               <h2 className="mb-2 text-xl font-bold leading-snug text-gray-900 dark:text-white">
-                Could you qualify for final expense coverage?
+                Lock in Affordable Final Expense Coverage in Minutes
               </h2>
               <p className="mb-6 text-sm text-gray-500 dark:text-gray-400">
                 Answer 4 quick questions — no medical exam required.
@@ -93,12 +80,10 @@ export default function QuizPopup() {
                 Step {step + 1} of {STEPS.length}
               </p>
 
-              {/* Question */}
               <p className="mb-4 text-sm font-semibold text-gray-800 dark:text-gray-200">
                 {current.question}
               </p>
 
-              {/* Inputs */}
               {current.type === "zip" && (
                 <div className="space-y-3">
                   <input
@@ -135,8 +120,6 @@ export default function QuizPopup() {
                 </div>
               )}
 
-              
-
               <div className="mt-5 flex items-center justify-center gap-1.5 text-xs text-gray-400 dark:text-gray-500">
                 <Lock size={11} />
                 Your information is safe &amp; secure
@@ -144,6 +127,65 @@ export default function QuizPopup() {
             </>
           )}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function TcpaStep({
+  tcpa,
+  setTcpa,
+  onSubmit,
+}: {
+  tcpa: boolean;
+  setTcpa: (v: boolean) => void;
+  onSubmit: () => void;
+}) {
+  return (
+    <div>
+      <div className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
+        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+        Almost Done
+      </div>
+
+      <h2 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">
+        See Your Results
+      </h2>
+      <p className="mb-5 text-sm text-gray-500 dark:text-gray-400">
+        One last step — please review and agree below.
+      </p>
+
+      {/* TCPA Checkbox */}
+      <label className="flex items-start gap-3 cursor-pointer rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-4 hover:border-emerald-400 transition-colors">
+        <input
+          type="checkbox"
+          checked={tcpa}
+          onChange={(e) => setTcpa(e.target.checked)}
+          className="mt-0.5 h-4 w-4 shrink-0 accent-emerald-600 cursor-pointer"
+        />
+        <span className="text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+          By checking this box and clicking "See My Results", I provide my express written consent to be contacted by
+          licensed insurance agents at the number I provide, including via automated dialing systems, pre-recorded
+          messages, and/or SMS text messages, even if my number is on a Do Not Call registry. I understand that my
+          consent is not a condition of purchase. Message &amp; data rates may apply.{" "}
+          <a href="/privacy" className="text-emerald-600 dark:text-emerald-400 underline hover:text-emerald-700">
+            Privacy Policy
+          </a>
+          .
+        </span>
+      </label>
+
+      <button
+        onClick={onSubmit}
+        disabled={!tcpa}
+        className="mt-4 w-full rounded-xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-40 disabled:cursor-not-allowed py-3 text-sm font-semibold text-white transition-all"
+      >
+        See My Results →
+      </button>
+
+      <div className="mt-4 flex items-center justify-center gap-1.5 text-xs text-gray-400 dark:text-gray-500">
+        <Lock size={11} />
+        Your information is safe &amp; secure
       </div>
     </div>
   );

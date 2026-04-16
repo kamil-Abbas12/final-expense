@@ -39,7 +39,7 @@ export default function SiteFooter() {
             >
               866-963-5898
             </a>
-            <p className="mt-1 text-xs text-gray-400 dark:text-gray-500">Mon–Fri, 8am–6pm EST</p>
+            <p className="mt-1 text-xs text-gray-400 dark:text-gray-500">Mon–Fri, 9am–6pm EST</p>
           </div>
         </div>
 

@@ -107,7 +107,30 @@ export default function QuoteSection() {
                     <option>$25,000</option>
                   </select>
                 </div>
-
+{/* TCPA Consent */}
+<label className="flex items-start gap-3 text-xs text-gray-400 dark:text-gray-500">
+  <input
+    id="tcpa"
+    name="tcpa"
+    type="checkbox"
+    required
+    className="mt-1 h-4 w-4 accent-emerald-600"
+  />
+  <span>
+    By clicking "Get My Free Quote", you consent and request to be contacted by
+    <strong> topinstantquotes.com</strong>, its affiliates, and partners via
+    phone, email, and SMS, including automated technology and prerecorded
+    messages, even if your number is on a national or state Do Not Call list.
+    Consent is not required as a condition of purchase. View our{" "}
+    <a href="/privacy-policy" className="underline text-emerald-500">
+      Privacy Policy
+    </a>{" "}
+    and{" "}
+    <a href="/terms-of-service" className="underline text-emerald-500">
+      Terms of Service
+    </a>.
+  </span>
+</label>
                 <button
                   type="submit"
                   className="w-full rounded-xl bg-emerald-600 hover:bg-emerald-700 py-3.5 text-sm font-medium text-white transition-all shadow-md shadow-emerald-600/20 hover:-translate-y-0.5 active:translate-y-0"
