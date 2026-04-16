@@ -39,12 +39,13 @@ export default function Header() {
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5">
         {/* Logo */}
         <div className="flex items-center gap-2">
-<Image src="/finalexpense.png"
-alt="Finalexpense-logo"
-width={100}
-height={100}
+<Image
+  src="/finalexpense.png"
+  alt="Finalexpense-logo"
+  width={100}
+  height={80}
+  className="dark:bg-white dark:rounded-md "
 />
-            <span className="text-white text-xs font-bold">FE</span>
       
           
         </div>
