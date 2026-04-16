@@ -9,8 +9,8 @@ export default function SiteFooter() {
           <div className="max-w-xs">
             <div className="mb-3 flex items-center gap-2">
               
-             <Image src="/logo1.png"
-             alt="logo"
+             <Image src="/finalexpense.png"
+             alt="finalexpense-logo"
              width={100}
              height={100}
              />

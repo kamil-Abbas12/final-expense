@@ -39,8 +39,8 @@ export default function Header() {
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5">
         {/* Logo */}
         <div className="flex items-center gap-2">
-<Image src="/logo1.png"
-alt="logo"
+<Image src="/finalexpense.png"
+alt="Finalexpense-logo"
 width={100}
 height={100}
 />
