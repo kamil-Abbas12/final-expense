@@ -1,4 +1,10 @@
-import { benefits } from "@/data";
+const benefits = [
+  { value: "$5K–$25K", label: "Coverage range available" },
+  { value: "Ages 50–85", label: "Eligibility window" },
+  { value: "$0", label: "Medical exam required" },
+  { value: "Fixed", label: "Premiums locked for life" },
+  { value: "A+", label: "Carrier financial rating" },
+];
 
 export default function BenefitsSection() {
   return (
@@ -8,10 +14,10 @@ export default function BenefitsSection() {
           Plan Highlights
         </div>
         <h2 className="mb-4 text-center text-3xl font-semibold tracking-tight text-gray-900 dark:text-white md:text-4xl">
-Security crafted for simplicity
+          Security Crafted for Simplicity
         </h2>
         <p className="mx-auto mb-14 max-w-xl text-center text-base text-gray-500 dark:text-gray-400">
-         Clear terms, clear benefits. Discover exactly what’s included when you choose TopDog Final Expense.
+          Clear terms, clear benefits. Discover exactly what&apos;s included when you choose TopDog Final Expense.
         </p>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">

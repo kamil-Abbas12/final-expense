@@ -39,25 +39,31 @@ export default function Header() {
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5">
         {/* Logo */}
         <div className="flex items-center gap-2">
-<Image
-  src="/finalexpense.png"
-  alt="Finalexpense-logo"
-  width={100}
-  height={80}
-  className="dark:invert dark:brightness-0 dark:contrast-200"
-/>   
-          
+          <Image
+            src="/finalexpense.png"
+            alt="TopDog Final Expense logo"
+            width={100}
+            height={80}
+            className="dark:invert dark:brightness-0 dark:contrast-200"
+            priority
+          />
         </div>
 
         {/* Nav links — hidden on mobile */}
-        <nav className="hidden md:flex justify-between items-center gap-7 text-md font-medium text-gray-500 dark:text-gray-400">
-          <a href="#coverage" className="hover:text-gray-900 dark:hover:text-white transition-colors">Coverage</a>
-          <a href="#benefits" className="hover:text-gray-900 dark:hover:text-white transition-colors">Benefits</a>
-          <a href="#faq" className="hover:text-gray-900 dark:hover:text-white transition-colors">FAQ</a>
+        <nav className="hidden md:flex justify-between items-center gap-7 text-sm font-medium text-gray-500 dark:text-gray-400">
+          <a href="#coverage" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+            Coverage
+          </a>
+          <a href="#benefits" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+            Benefits
+          </a>
+          <a href="#faq" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+            FAQ
+          </a>
         </nav>
 
         {/* Right side */}
-        <div className="flex  items-center gap-3">
+        <div className="flex items-center gap-3">
           <a
             href="tel:8669635898"
             className="hidden md:flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
@@ -83,5 +89,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-    );
+  );
 }

@@ -1,8 +1,6 @@
 "use client";
 
-
-import { useEffect, useState } from "react";
-
+import { useEffect, useState, Suspense } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import ScrollToTopButton from "./components/ScrollToTop";
@@ -14,6 +12,8 @@ import BenefitsSection from "./components/Benefitssection";
 import QuoteSection from "./components/Quotesection";
 import SiteFooter from "./components/Sitefooter";
 import QuizPopup from "./components/Quizpopup";
+import StructuredData from "./components/Structureddata";
+import Analytics from "./components/Analytics";
 
 export default function HomePage() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -26,13 +26,18 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+      <StructuredData />
+      <Suspense fallback={null}>
+        {/* <Analytics /> */}
+      </Suspense>
       <a
         href="#main-content"
         className="absolute left-1/2 top-[-100px] z-[9999] -translate-x-1/2 rounded-lg bg-emerald-600 px-5 py-3 text-white focus:top-3 shadow-lg"
       >
         Skip to main content
       </a>
-<QuizPopup /> 
+
+      <QuizPopup />
       <Header />
 
       <main id="main-content">

@@ -1,62 +1,41 @@
-import { NextResponse } from "next/server";
-import clientPromise from "@/lib/mongodb";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: Request) {
+interface QuotePayload {
+  firstName: string;
+  lastName: string;
+  phone: string;
+  dob: string;
+  coverage: string;
+  tcpaConsent: boolean;
+}
+
+export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
+    const body: QuotePayload = await req.json();
 
-    const {
-      firstName,
-      lastName,
-      phone,
-      dob,
-      coverage,
-      tcpaConsent,
-    } = body;
-
-    // ✅ Get IP & User Agent
-    const ip =
-      req.headers.get("x-forwarded-for") ||
-      req.headers.get("x-real-ip") ||
-      "unknown";
-
-    const userAgent = req.headers.get("user-agent") || "unknown";
-
-    // ✅ Validation
-    if (!firstName || !lastName || !phone || !dob || !tcpaConsent) {
-      return NextResponse.json(
-        { error: "Missing required fields" },
-        { status: 400 }
-      );
+    // Validate required fields
+    if (!body.firstName || !body.lastName || !body.phone || !body.dob || !body.coverage) {
+      return NextResponse.json({ success: false, error: "Missing required fields." }, { status: 400 });
     }
 
-    const client = await clientPromise;
-    const db = client.db("finalexpense");
+    if (!body.tcpaConsent) {
+      return NextResponse.json({ success: false, error: "TCPA consent is required." }, { status: 400 });
+    }
 
-    const result = await db.collection("leads").insertOne({
-      firstName,
-      lastName,
-      phone,
-      dob,
-      coverage,
-      tcpaConsent,
-
-      // ✅ Compliance fields
-      ip,
-      userAgent,
-
-      createdAt: new Date(),
+    // TODO: Integrate with your CRM or lead distribution platform here.
+    // Example: send to a webhook, write to a database, call a third-party API.
+    console.log("New quote lead:", {
+      name: `${body.firstName} ${body.lastName}`,
+      phone: body.phone,
+      dob: body.dob,
+      coverage: body.coverage,
+      tcpaConsent: body.tcpaConsent,
+      timestamp: new Date().toISOString(),
     });
 
-    return NextResponse.json({
-      success: true,
-      id: result.insertedId,
-    });
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json(
-      { error: "Server error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: true });
+  } catch (err) {
+    console.error("Quote API error:", err);
+    return NextResponse.json({ success: false, error: "Internal server error." }, { status: 500 });
   }
 }
