@@ -60,6 +60,9 @@ export default function Header() {
           <a href="#faq" className="hover:text-gray-900 dark:hover:text-white transition-colors">
             FAQ
           </a>
+           <a href="#blog" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+Blog
+          </a>
         </nav>
 
         {/* Right side */}

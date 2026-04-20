@@ -14,6 +14,7 @@ import SiteFooter from "./components/Sitefooter";
 import QuizPopup from "./components/Quizpopup";
 import StructuredData from "./components/Structureddata";
 import Analytics from "./components/Analytics";
+import Blog from "./components/Blog";
 
 export default function HomePage() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -48,6 +49,7 @@ export default function HomePage() {
         <BenefitsSection />
         <QuoteSection />
         <FaqSection />
+        <Blog/>
       </main>
 
       <SiteFooter />
