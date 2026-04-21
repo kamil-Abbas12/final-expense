@@ -14,8 +14,8 @@ const blogPosts: BlogPost[] = [
     id: 1,
     title: "How Final Expense Insurance Works",
     description:
-      "Learn how final expense insurance can protect your loved ones and cover end-of-life costs بسهولة.",
-    image: "https://source.unsplash.com/600x400/?insurance",
+      "Learn how final expense insurance can protect your loved ones and cover end-of-life costs",
+    image: "FinalExpenseSecure.png",
     date: "April 10, 2026",
     link: "https://finalexpense.topdoglead.com",
   },
@@ -24,7 +24,7 @@ const blogPosts: BlogPost[] = [
     title: "Top 5 Benefits of Final Expense Plans",
     description:
       "Discover why more families are choosing final expense coverage for peace of mind.",
-    image: "finalexpensefamily.jpg",
+    image: "FinalExpenseBenefits.png",
     date: "April 12, 2026",
     link: "https://finalexpense.topdoglead.com",
   },
@@ -33,7 +33,7 @@ const blogPosts: BlogPost[] = [
     title: "Common Myths About Life Insurance",
     description:
       "We break down the biggest misconceptions about life and final expense insurance.",
-    image: "https://source.unsplash.com/600x400/?finance",
+    image: "LifeInsuranceMyths.png",
     date: "April 15, 2026",
     link: "https://finalexpense.topdoglead.com",
   },
@@ -71,7 +71,7 @@ const Blog = () => {
               <img
                 src={post.image}
                 alt={post.title}
-                className="w-full h-52 object-cover group-hover:scale-110 transition duration-300"
+                className="w-full h-60 object-cover group-hover:scale-110 transition duration-300"
               />
             </div>
 
