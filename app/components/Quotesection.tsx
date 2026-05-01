@@ -125,9 +125,19 @@ export default function QuoteSection() {
                 </div>
 
                 <div>
-                  <label className="mb-1.5 block text-xs font-medium text-gray-700 dark:text-gray-300">
-                    Date of Birth
-                  </label>
+                 <label
+  htmlFor="dob"                    // ← add this
+  className="mb-1.5 block text-xs font-medium text-gray-700 dark:text-gray-300"
+>
+  Date of Birth
+</label>
+<input
+  id="dob"                         // ← add this
+  type="date"
+  name="dob"
+  required
+  className="..."
+/>
                   <input
                     type="date"
                     name="dob"
@@ -137,14 +147,15 @@ export default function QuoteSection() {
                 </div>
 
                 <div>
-                  <label className="mb-1.5 block text-xs font-medium text-gray-700 dark:text-gray-300">
-                    Coverage Amount
-                  </label>
-                  <select
-                    name="coverage"
-                    required
-                    className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-4 py-2.5 text-sm text-gray-900 dark:text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition-all"
-                  >
+                 <label htmlFor="coverage" className="mb-1.5 block text-xs font-medium text-gray-700 dark:text-gray-300">
+  Coverage Amount
+</label>
+<select
+  id="coverage"     
+  name="coverage"
+  required
+  className="..."
+>
                     <option value="">Select an amount</option>
                     <option value="5000">$5,000</option>
                     <option value="10000">$10,000</option>
@@ -155,7 +166,7 @@ export default function QuoteSection() {
                 </div>
 
                 {/* TCPA Consent */}
-                <label className="flex items-start gap-3 text-xs text-gray-400 dark:text-gray-500 cursor-pointer">
+                <label className="flex items-start gap-3 text-xs text-gray-500 dark:text-gray-500 cursor-pointer">
                   <input
                     id="tcpa"
                     name="tcpa"

@@ -50,10 +50,8 @@ export default function FaqSection() {
         </h2>
         <p className="mb-12 text-center text-base text-gray-500 dark:text-gray-400">
           Still have questions? Call us at{" "}
-          <a
-            href="tel:8669635898"
-            className="text-emerald-600 dark:text-emerald-400 hover:underline"
-          >
+         <a href="tel:8669635898" className="text-emerald-600 dark:text-emerald-400 underline hover:no-underline">
+
             866-963-5898
           </a>{" "}
           to speak with a licensed agent.
