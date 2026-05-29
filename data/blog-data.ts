@@ -60,30 +60,75 @@ export const blogPosts: BlogPost[] = [
 
       <p>To help you figure out where you stand, ask yourself these three practical questions:</p>
 
-      <div style="overflow-x:auto;margin:1.5rem 0;">
-        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;text-align:left;">
+      <style>
+        .comparison-table { width:100%; border-collapse:collapse; font-size:0.9rem; text-align:left; }
+        .comparison-table thead tr th { background-color:#059669; color:#ffffff; padding:0.75rem 1rem; font-weight:700; border:1px solid #d1fae5; }
+        .comparison-table tbody tr:nth-child(odd) { background-color:#f0fdf4; }
+        .comparison-table tbody tr:nth-child(even) { background-color:#ffffff; }
+        .comparison-table tbody td { padding:0.75rem 1rem; border:1px solid #d1fae5; vertical-align:top; }
+        .comparison-table tbody td:first-child { font-weight:700; white-space:nowrap; }
+
+        @media (max-width: 640px) {
+          .comparison-table-wrapper { overflow-x: visible !important; }
+          .comparison-table thead { display:none; }
+          .comparison-table, .comparison-table tbody, .comparison-table tr, .comparison-table td { display:block; width:100%; }
+          .comparison-table tbody tr {
+            margin-bottom:1rem;
+            border:1px solid #d1fae5;
+            border-radius:12px;
+            overflow:hidden;
+            box-shadow:0 1px 6px rgba(0,0,0,0.06);
+          }
+          .comparison-table tbody tr:nth-child(odd),
+          .comparison-table tbody tr:nth-child(even) { background-color:#ffffff; }
+          .comparison-table tbody td { border:none; border-bottom:1px solid #d1fae5; padding:0.65rem 0.9rem; }
+          .comparison-table tbody td:last-child { border-bottom:none; }
+          .comparison-table tbody td:first-child {
+            background-color:#059669;
+            color:#ffffff;
+            font-weight:700;
+            font-size:0.85rem;
+            letter-spacing:0.02em;
+            white-space:normal;
+          }
+          .comparison-table tbody td:not(:first-child)::before {
+            display:block;
+            font-size:0.7rem;
+            font-weight:700;
+            text-transform:uppercase;
+            letter-spacing:0.08em;
+            color:#059669;
+            margin-bottom:0.3rem;
+          }
+          .comparison-table tbody td:nth-child(2)::before { content:"Savings Might Be Enough"; }
+          .comparison-table tbody td:nth-child(3)::before { content:"Insurance Is Probably Better"; }
+        }
+      </style>
+
+      <div class="comparison-table-wrapper" style="overflow-x:auto;margin:1.5rem 0;">
+        <table class="comparison-table">
           <thead>
             <tr>
-              <th style="background-color:#059669;color:#ffffff;padding:0.75rem 1rem;font-weight:700;border:1px solid #d1fae5;min-width:160px;">If Your Situation Looks Like This...</th>
-              <th style="background-color:#059669;color:#ffffff;padding:0.75rem 1rem;font-weight:700;border:1px solid #d1fae5;">...Savings Might Be Enough</th>
-              <th style="background-color:#059669;color:#ffffff;padding:0.75rem 1rem;font-weight:700;border:1px solid #d1fae5;">...Insurance Is Probably Better</th>
+              <th>If Your Situation Looks Like This...</th>
+              <th>...Savings Might Be Enough</th>
+              <th>...Insurance Is Probably Better</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="background-color:#f0fdf4;">
-              <td style="padding:0.75rem 1rem;border:1px solid #d1fae5;font-weight:700;vertical-align:top;">Account Setup</td>
-              <td style="padding:0.75rem 1rem;border:1px solid #d1fae5;vertical-align:top;">You have a Joint account or a Payable-on-Death (POD) designation that gives your family instant cash.</td>
-              <td style="padding:0.75rem 1rem;border:1px solid #d1fae5;vertical-align:top;">Your money is tied up in solo bank accounts, stocks, or real estate that take time to sell/liquidate.</td>
+            <tr>
+              <td>Account Setup</td>
+              <td>You have a Joint account or a Payable-on-Death (POD) designation that gives your family instant cash.</td>
+              <td>Your money is tied up in solo bank accounts, stocks, or real estate that take time to sell/liquidate.</td>
             </tr>
-            <tr style="background-color:#ffffff;">
-              <td style="padding:0.75rem 1rem;border:1px solid #d1fae5;font-weight:700;vertical-align:top;">Health &amp; Long-Term Care</td>
-              <td style="padding:0.75rem 1rem;border:1px solid #d1fae5;vertical-align:top;">You have separate, ironclad long-term care insurance or medical savings that won't touch your main nest egg.</td>
-              <td style="padding:0.75rem 1rem;border:1px solid #d1fae5;vertical-align:top;">Your savings could realistically be drained by future medical bills or assisted living costs.</td>
+            <tr>
+              <td>Health &amp; Long-Term Care</td>
+              <td>You have separate, ironclad long-term care insurance or medical savings that won't touch your main nest egg.</td>
+              <td>Your savings could realistically be drained by future medical bills or assisted living costs.</td>
             </tr>
-            <tr style="background-color:#f0fdf4;">
-              <td style="padding:0.75rem 1rem;border:1px solid #d1fae5;font-weight:700;vertical-align:top;">Legacy Goals</td>
-              <td style="padding:0.75rem 1rem;border:1px solid #d1fae5;vertical-align:top;">You want your savings to go directly to your heirs to buy a house, pay for college, or inherit cleanly.</td>
-              <td style="padding:0.75rem 1rem;border:1px solid #d1fae5;vertical-align:top;">You don't want a chunk of the inheritance you leave behind to immediately vanish into funeral bills.</td>
+            <tr>
+              <td>Legacy Goals</td>
+              <td>You want your savings to go directly to your heirs to buy a house, pay for college, or inherit cleanly.</td>
+              <td>You don't want a chunk of the inheritance you leave behind to immediately vanish into funeral bills.</td>
             </tr>
           </tbody>
         </table>
