@@ -1,7 +1,9 @@
 "use client";
+
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Moon, Sun, Phone } from "lucide-react";
+import { Moon, Sun, Phone, ChevronDown } from "lucide-react";
 
 export default function Header() {
   const [dark, setDark] = useState(false);
@@ -37,35 +39,66 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5">
-        {/* Logo */}
         <div className="flex items-center gap-2">
-          <Image
-            src="/finalexpense.png"
-            alt="TopDog Final Expense logo"
-            width={100}
-            height={80}
-            className="dark:invert dark:brightness-0 dark:contrast-200"
-            priority
-          />
+          <Link href="/">
+            <Image
+              src="/finalexpense.png"
+              alt="TopDog Final Expense logo"
+              width={100}
+              height={80}
+              className="dark:invert dark:brightness-0 dark:contrast-200"
+              priority
+            />
+          </Link>
         </div>
 
-        {/* Nav links — hidden on mobile */}
-        <nav className="hidden md:flex justify-between items-center gap-7 text-sm font-medium text-gray-500 dark:text-gray-400">
-          <a href="#coverage" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-gray-500 dark:text-gray-400">
+          <Link href="/#coverage" className="hover:text-gray-900 dark:hover:text-white transition-colors">
             Coverage
-          </a>
-          <a href="#benefits" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+          </Link>
+
+          <Link href="/#benefits" className="hover:text-gray-900 dark:hover:text-white transition-colors">
             Benefits
-          </a>
-          <a href="#faq" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+          </Link>
+
+          <Link href="/#faq" className="hover:text-gray-900 dark:hover:text-white transition-colors">
             FAQ
-          </a>
-           <a href="#blog" className="hover:text-gray-900 dark:hover:text-white transition-colors">
-Blog
-          </a>
+          </Link>
+
+          <div className="relative group">
+            <button className="flex items-center gap-1 hover:text-gray-900 dark:hover:text-white transition-colors">
+              Blog <ChevronDown size={16} />
+            </button>
+
+            <div className="invisible absolute left-0 top-full mt-3 w-56 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100">
+              <Link
+                href="/blog"
+                className="block rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
+                Blog Home
+              </Link>
+              <Link
+                href="/blog/grid"
+                className="block rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
+                Blog Grid
+              </Link>
+              <Link
+                href="/blog/sidebar"
+                className="block rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
+                Blog Sidebar
+              </Link>
+              <Link
+                href="/blog/how-final-expense-insurance-works"
+                className="block rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
+                Blog Detail
+              </Link>
+            </div>
+          </div>
         </nav>
 
-        {/* Right side */}
         <div className="flex items-center gap-3">
           <a
             href="tel:8669635898"

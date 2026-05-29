@@ -1,44 +1,11 @@
 import Image from "next/image";
-
-type BlogPost = {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  date: string;
-  link: string;
-};
-
-const blogPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "How Final Expense Insurance Works",
-    description: "Learn how final expense insurance can protect your loved ones and cover end-of-life costs",
-    image: "/FinalExpenseSecure.png",   // ← add leading slash
-    date: "April 10, 2026",
-    link: "/blog/how-final-expense-insurance-works",
-  },
-  {
-    id: 2,
-    title: "Top 5 Benefits of Final Expense Plans",
-    description: "Discover why more families are choosing final expense coverage for peace of mind.",
-    image: "/FinalExpenseBenefits.png",  // ← add leading slash
-    date: "April 12, 2026",
-    link: "/blog/top-5-benefits-of-final-expense-plans",
-  },
-  {
-    id: 3,
-    title: "Common Myths About Life Insurance",
-    description: "We break down the biggest misconceptions about life and final expense insurance.",
-    image: "/LifeInsuranceMyths.png",    // ← add leading slash
-    date: "April 15, 2026",
-    link: "/blog/common-myths-about-life-insurance",
-  },
-];
+import Link from "next/link";
+import { blogPosts } from "@/data/blog-data";
 
 const Blog = () => {
+  const featuredPosts = blogPosts.slice(0, 3);
+
   return (
-    <>
     <section id="blog" className="bg-white dark:bg-gray-950 w-full py-20 px-6 lg:px-20">
       <div className="text-center max-w-2xl mx-auto">
         <h1 className="text-green-600 text-sm uppercase tracking-widest">Blog</h1>
@@ -51,49 +18,48 @@ const Blog = () => {
       </div>
 
       <div className="grid gap-8 mt-14 sm:grid-cols-2 lg:grid-cols-3">
-        {blogPosts.map((post) => (
+        {featuredPosts.map((post) => (
           <div
             key={post.id}
             className="group bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"
           >
-            {/* ✅ Next.js Image — auto WebP + compressed */}
             <div className="relative w-full h-60 overflow-hidden">
               <Image
-                src={post.image}
+                src={post.coverImage}
                 alt={post.title}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover group-hover:scale-110 transition duration-300"
-                loading="lazy"
               />
             </div>
 
             <div className="p-6">
-              <p className="text-sm text-gray-500 dark:text-gray-400">{post.date}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">{post.publishedAt}</p>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-2 group-hover:text-green-600 transition">
                 {post.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mt-3 text-sm">{post.description}</p>
-              <a
-                href={post.link}
+              <p className="text-gray-600 dark:text-gray-400 mt-3 text-sm">{post.excerpt}</p>
+
+              <Link
+                href={`/blog/${post.slug}`}
                 className="inline-block mt-5 text-sm font-medium text-green-600 underline hover:no-underline"
               >
                 Read More →
-              </a>
+              </Link>
             </div>
           </div>
         ))}
       </div>
 
-     <div className="text-center mt-16">
-    <a href="/blog"
-    className="bg-green-600 text-white px-6 py-3 rounded-full font-medium hover:bg-green-700 transition">
-    Visit Full Blog
-    </a>
-     </div>
-   
+      <div className="text-center mt-16">
+        <Link
+          href="/blog"
+          className="bg-green-600 text-white px-6 py-3 rounded-full font-medium hover:bg-green-700 transition"
+        >
+          Visit Full Blog
+        </Link>
+      </div>
     </section>
-  </>
   );
 };
 

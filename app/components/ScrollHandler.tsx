@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import ScrollToTopButton from "../../ScrollToTop";
+import ScrollToTopButton from "./ScrollToTop";
 
 export default function ScrollHandler() {
   const [showScrollTop, setShowScrollTop] = useState(false);

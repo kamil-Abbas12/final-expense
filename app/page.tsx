@@ -14,6 +14,7 @@ import SiteFooter from "./components/Sitefooter";
 import QuizPopup from "./components/Quizpopup";
 import StructuredData from "./components/Structureddata";
 import Analytics from "./components/Analytics";
+import Blogs from "./components/Blog";
 import Blog from "./components/Blog";
 
 export default function HomePage() {
