@@ -17,7 +17,7 @@ export const categories = [
 
 export const blogPosts: BlogPost[] = [
   {
-    id: 4,
+    id: 1,
     slug: "is-final-expense-insurance-worth-it-if-you-already-have-savings",
     title: "Is Final Expense Insurance Worth It If You Already Have Savings?",
     excerpt:
@@ -146,8 +146,122 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "May 29, 2026",
     category: "Financial Planning",
   },
+   {
+    id: 2,
+    slug: "3-myths-about-final-expense-insurance-that-keep-people-uninsured",
+    title: "3 Myths About Final Expense Insurance That Keep People Uninsured",
+    excerpt:
+      "Misinformation about final expense insurance stops many people from ever applying — leaving their families exposed to sudden, massive bills. Let's clear the air on the three biggest myths.",
+    content: `
+      <p>Thinking about what happens after we are gone isn't exactly anyone's idea of a fun afternoon. Because it's an uncomfortable topic, a lot of people push it to the back burner. When they finally do look into final expense insurance — often called &ldquo;burial insurance&rdquo; — they run into a wall of misinformation. There are a handful of persistent myths out there that cause people to walk away entirely, leaving their families vulnerable to sudden, massive bills during one of the worst weeks of their lives.</p>
+ 
+      <p>Let's clear the air and break down the three biggest myths keeping people from getting the coverage they need.</p>
+ 
+      <h2 style="font-size:1.5rem;font-weight:700;margin-top:2rem;margin-bottom:0.75rem;color:inherit;font-family:'Playfair Display',Georgia,serif;">Myth 1: &ldquo;I have a medical condition, so I'll never get approved.&rdquo;</h2>
+ 
+      <p>This is the number one reason people stop themselves from applying. They assume that because they have diabetes, high blood pressure, or survived a heart attack a few years back, an insurance company will just laugh them out of the room.</p>
+ 
+      <p>Here is the truth: <strong>Final expense insurance is specifically designed for seniors and individuals who might not be in perfect health.</strong></p>
+ 
+      <p>Unlike traditional life insurance, these policies rarely require a medical exam. Instead, you just answer a few basic health questions. Even if your health is seriously compromised, there are guaranteed acceptance policies available. As long as you meet the age requirements (usually between 50 and 85), you cannot be turned down.</p>
+ 
+      <h2 style="font-size:1.5rem;font-weight:700;margin-top:2rem;margin-bottom:0.75rem;color:inherit;font-family:'Playfair Display',Georgia,serif;">Myth 2: &ldquo;It's way too expensive for someone on a fixed income.&rdquo;</h2>
+ 
+      <p>When people hear the word &ldquo;insurance,&rdquo; they often picture hefty monthly premiums that stretch their budgets to the breaking point.</p>
+ 
+      <p>But final expense insurance isn't meant to replace your income or buy your kids a mansion; its only job is to cover your end-of-life expenses. Because the payout amounts are much smaller (typically ranging from $5,000 to $25,000), the premiums are highly affordable.</p>
+ 
+      <style>
+        .myths-table { width:100%; border-collapse:collapse; font-size:0.9rem; text-align:left; }
+        .myths-table thead tr th { background-color:#059669; color:#ffffff; padding:0.75rem 1rem; font-weight:700; border:1px solid #d1fae5; }
+        .myths-table tbody tr:nth-child(odd) { background-color:#f0fdf4; }
+        .myths-table tbody tr:nth-child(even) { background-color:#ffffff; }
+        .myths-table tbody td { padding:0.75rem 1rem; border:1px solid #d1fae5; vertical-align:top; }
+        .myths-table tbody td:first-child { font-weight:700; white-space:nowrap; }
+ 
+        @media (max-width: 640px) {
+          .myths-table-wrapper { overflow-x: visible !important; }
+          .myths-table thead { display:none; }
+          .myths-table, .myths-table tbody, .myths-table tr, .myths-table td { display:block; width:100%; }
+          .myths-table tbody tr {
+            margin-bottom:1rem;
+            border:1px solid #d1fae5;
+            border-radius:12px;
+            overflow:hidden;
+            box-shadow:0 1px 6px rgba(0,0,0,0.06);
+          }
+          .myths-table tbody tr:nth-child(odd),
+          .myths-table tbody tr:nth-child(even) { background-color:#ffffff; }
+          .myths-table tbody td { border:none; border-bottom:1px solid #d1fae5; padding:0.65rem 0.9rem; }
+          .myths-table tbody td:last-child { border-bottom:none; }
+          .myths-table tbody td:first-child {
+            background-color:#059669;
+            color:#ffffff;
+            font-weight:700;
+            font-size:0.85rem;
+            letter-spacing:0.02em;
+            white-space:normal;
+          }
+          .myths-table tbody td:not(:first-child)::before {
+            display:block;
+            font-size:0.7rem;
+            font-weight:700;
+            text-transform:uppercase;
+            letter-spacing:0.08em;
+            color:#059669;
+            margin-bottom:0.3rem;
+          }
+          .myths-table tbody td:nth-child(2)::before { content:"What It Usually Covers"; }
+          .myths-table tbody td:nth-child(3)::before { content:"Budget Impact"; }
+        }
+      </style>
+ 
+      <div class="myths-table-wrapper" style="overflow-x:auto;margin:1.5rem 0;">
+        <table class="myths-table">
+          <thead>
+            <tr>
+              <th>Policy Amount</th>
+              <th>What It Usually Covers</th>
+              <th>Budget Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$5,000 &ndash; $10,000</td>
+              <td>Simple cremation, basic memorial service, and minor outstanding debts.</td>
+              <td>Often costs less than a couple of takeout meals per month.</td>
+            </tr>
+            <tr>
+              <td>$15,000 &ndash; $25,000</td>
+              <td>Traditional funeral, casket, burial plot, headstone, and lingering medical bills.</td>
+              <td>Fits comfortably into most modest retirement or Social Security budgets.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+ 
+      <p>The best part? Once you lock in your rate, your premiums never go up, and your coverage never goes down as long as the bill is paid.</p>
+ 
+      <h2 style="font-size:1.5rem;font-weight:700;margin-top:2rem;margin-bottom:0.75rem;color:inherit;font-family:'Playfair Display',Georgia,serif;">Myth 3: &ldquo;My family can just use my regular savings or Social Security.&rdquo;</h2>
+ 
+      <p>It is a comforting thought: <em> <strong>&ldquo;I've got a few thousand dollars in the bank; they can just use that</strong>.&rdquo;</em> Unfortunately, the logistics of the real world make this incredibly difficult.</p>
+ 
+      <p>When a person passes away, bank accounts — even joint ones — sometimes can be frozen and sent to a complex legal process called probate. It can take weeks, months, or even longer for your family to get access to that money. Funerals, however, require payment upfront.</p>
+ 
+      <p>As for Social Security? The one-time death benefit for a surviving spouse is only <strong>$255</strong>. That hasn't changed since the mid-20th century, and it won't even cover the cost of a modern flower arrangement, let alone a burial.</p>
+ 
+      <p>Final expense insurance avoids all of this. The payout goes directly to your beneficiary (like a spouse or child) as a tax-free cash payment, usually within a few days of filing a claim. They get the cash exactly when the funeral home is asking for a check.</p>
+ 
+      <hr style="border:none;border-top:1px solid #d1fae5;margin:2rem 0;" />
+ 
+      <p><em><strong>Don't let a misunderstanding leave your family holding the bag. Final expense insurance isn't about you; it's about giving the people you love the space to grieve without a massive financial dark cloud hanging over them.</strong></em></p>
+    `,
+    coverImage: "/Insurance-matched-to-life-milestones.webp",
+    publishedAt: "June 10, 2026",
+    category: "Final Expense",
+  },
   {
-    id: 1,
+    id: 3,
     slug: "how-final-expense-insurance-works",
     title: "How Final Expense Insurance Works",
     excerpt:
@@ -159,40 +273,12 @@ export const blogPosts: BlogPost[] = [
       <h2>Main benefits</h2>
       <p>Most plans have fixed premiums, predictable coverage, and simple qualification compared with larger life insurance policies.</p>
     `,
-    coverImage: "/FinalExpenseSecure.png",
+    coverImage: "/FinalExpenseSecure.webp",
     publishedAt: "April 10, 2026",
     category: "Final Expense",
   },
-  {
-    id: 2,
-    slug: "top-5-benefits-of-final-expense-plans",
-    title: "Top 5 Benefits of Final Expense Plans",
-    excerpt:
-      "Discover why more families are choosing final expense coverage for peace of mind.",
-    content: `
-      <p>Final expense plans are popular because they are affordable, easy to understand, and help families handle end-of-life expenses.</p>
-      <h2>Top benefits</h2>
-      <p>They often offer lifelong coverage, fixed premiums, cash value growth, easier approval, and financial peace of mind for your family.</p>
-    `,
-    coverImage: "/FinalExpenseBenefits.png",
-    publishedAt: "April 12, 2026",
-    category: "Final Expense",
-  },
-  {
-    id: 3,
-    slug: "common-myths-about-life-insurance",
-    title: "Common Myths About Life Insurance",
-    excerpt:
-      "We break down the biggest misconceptions about life and final expense insurance.",
-    content: `
-      <p>Many people assume life insurance is too expensive or only needed later in life, but that is often not true.</p>
-      <h2>Common myths</h2>
-      <p>Coverage can be affordable, useful for many age groups, and easier to qualify for than most people expect.</p>
-    `,
-    coverImage: "/LifeInsuranceMyths.png",
-    publishedAt: "April 15, 2026",
-    category: "Life Insurance",
-  },
+   
+ 
 ];
 
 export function getPostBySlug(slug: string) {
