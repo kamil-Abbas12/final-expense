@@ -11,7 +11,7 @@ export default function SiteFooter() {
           <div className="max-w-xs">
             <div className="mb-3 flex items-center gap-2">
               <Image
-                src="/finalexpense.png"
+                src="/finalexpense.jpg"
                 alt="TopDog Final Expense logo"
                 width={100}
                 height={80}

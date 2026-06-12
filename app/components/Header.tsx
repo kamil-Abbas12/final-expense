@@ -42,7 +42,7 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <Link href="/">
             <Image
-              src="/finalexpense.png"
+              src="/finalexpense.jpg"
               alt="TopDog Final Expense logo"
               width={100}
               height={80}
