@@ -41,14 +41,13 @@ export default function Header() {
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5">
         <div className="flex items-center gap-2">
           <Link href="/">
-            <Image
-              src="/finalexpense.jpg"
-              alt="TopDog Final Expense logo"
-              width={100}
-              height={80}
-              className="dark:invert dark:brightness-0 dark:contrast-200"
-              priority
-            />
+           <Image
+  src={"/finalexpense.jpg"}
+  alt="TopDog Final Expense logo"
+  width={100}
+  height={80}
+  priority
+/>
           </Link>
         </div>
 

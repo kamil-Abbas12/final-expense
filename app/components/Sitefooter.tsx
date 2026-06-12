@@ -15,7 +15,6 @@ export default function SiteFooter() {
                 alt="TopDog Final Expense logo"
                 width={100}
                 height={80}
-                className="dark:invert dark:brightness-0 dark:contrast-200"
               />
             </div>
             <p className="text-xs text-gray-400 dark:text-gray-500 leading-relaxed">
