@@ -85,8 +85,9 @@ export default async function BlogDetailsPage({ params }: Props) {
             {/* article content */}
             <div
               className="
-              dark:text-white
-                prose prose-lg max-w-none
+              blog-content
+    dark:text-white
+    prose prose-lg max-w-none
                 prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white
                 prose-headings:leading-snug
                 prose-p:text-gray-700 dark:prose-p:text-gray-300

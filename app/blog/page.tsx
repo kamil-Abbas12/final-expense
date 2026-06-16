@@ -127,11 +127,7 @@ export default function BlogPage() {
                     Browse the Collection
                   </h2>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="h-px w-12 bg-emerald-300 dark:bg-emerald-700" />
-                  <span className="text-emerald-500 text-xl">✦</span>
-                  <div className="h-px w-12 bg-emerald-300 dark:bg-emerald-700" />
-                </div>
+                
               </div>
 
               <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
