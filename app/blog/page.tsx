@@ -1,5 +1,39 @@
+import type { Metadata } from "next";
 import { blogPosts } from "@/data/blog-data";
 import BlogCard from "../components/BlogCard";
+
+const BASE_URL = "https://www.finalexpense.topdoglead.com";
+
+// ── NEW: page-specific metadata ──
+export const metadata: Metadata = {
+  title: "Blog | Final Expense Insurance Guides & Tips",
+  description:
+    "Expert guides on final expense insurance, burial costs, and end-of-life financial planning. Free resources to help you protect your family.",
+  alternates: {
+    canonical: `${BASE_URL}/blog`,
+  },
+  openGraph: {
+    type: "website",
+    title: "Blog | Final Expense Insurance Guides & Tips",
+    description:
+      "Expert guides on final expense insurance, burial costs, and end-of-life financial planning.",
+    url: `${BASE_URL}/blog`,
+  },
+};
+
+// ── NEW: Blog collection schema, lists every post for Google ──
+const blogListSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "Top Dog Final Expense Blog",
+  url: `${BASE_URL}/blog`,
+  blogPost: blogPosts.map((post) => ({
+    "@type": "BlogPosting",
+    headline: post.title,
+    url: `${BASE_URL}/blog/${post.slug}`,
+    datePublished: post.publishedAt,
+  })),
+};
 
 export default function BlogPage() {
   return (

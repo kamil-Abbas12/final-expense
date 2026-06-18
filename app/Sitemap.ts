@@ -1,14 +1,21 @@
 import { MetadataRoute } from "next";
+import { blogPosts } from "@/data/blog-data";
 
 const BASE_URL = "https://www.finalexpense.topdoglead.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1.0,
+    },
+    {
+      url: `${BASE_URL}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/privacy-policy`,
@@ -22,12 +29,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.3,
     },
-    // ── Add blog/article pages here as you create them ──
-    // {
-    //   url: `${BASE_URL}/blog/what-is-final-expense-insurance`,
-    //   lastModified: new Date("2025-01-15"),
-    //   changeFrequency: "monthly",
-    //   priority: 0.8,
-    // },
   ];
+
+  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.publishedAt),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...blogPages];
 }

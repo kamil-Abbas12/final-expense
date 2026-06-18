@@ -52,51 +52,22 @@ export default function Header() {
         </div>
 
         <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-gray-500 dark:text-gray-400">
-          <Link href="/#coverage" className="hover:text-gray-900 dark:hover:text-white transition-colors">
-            Coverage
-          </Link>
+  <Link href="/#coverage" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+    Coverage
+  </Link>
 
-          <Link href="/#benefits" className="hover:text-gray-900 dark:hover:text-white transition-colors">
-            Benefits
-          </Link>
+  <Link href="/#benefits" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+    Benefits
+  </Link>
 
-          <Link href="/#faq" className="hover:text-gray-900 dark:hover:text-white transition-colors">
-            FAQ
-          </Link>
+  <Link href="/#faq" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+    FAQ
+  </Link>
 
-          <div className="relative group">
-            <button className="flex items-center gap-1 hover:text-gray-900 dark:hover:text-white transition-colors">
-              Blog <ChevronDown size={16} />
-            </button>
-
-            <div className="invisible absolute left-0 top-full mt-3 w-56 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100">
-              <Link
-                href="/blog"
-                className="block rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800"
-              >
-                Blog Home
-              </Link>
-              <Link
-                href="/blog/grid"
-                className="block rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800"
-              >
-                Blog Grid
-              </Link>
-              <Link
-                href="/blog/sidebar"
-                className="block rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800"
-              >
-                Blog Sidebar
-              </Link>
-              <Link
-                href="/blog/how-final-expense-insurance-works"
-                className="block rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800"
-              >
-                Blog Detail
-              </Link>
-            </div>
-          </div>
-        </nav>
+  <Link href="/blog" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+    Blog
+  </Link>
+</nav>
 
         <div className="flex items-center gap-3">
           <a

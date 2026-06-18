@@ -1,20 +1,79 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getPostBySlug } from "@/data/blog-data";
+import type { Metadata } from "next";
+import { blogPosts, getPostBySlug } from "@/data/blog-data";
+
+const BASE_URL = "https://www.finalexpense.topdoglead.com";
 
 type Props = { params: Promise<{ slug: string }> };
+
+// ── NEW: tells Next.js which slugs exist at build time ──
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({ slug: post.slug }));
+}
+
+// ── NEW: per-post title/description/OG tags ──
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+  if (!post) return {};
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: `${BASE_URL}/blog/${post.slug}` },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.excerpt,
+      url: `${BASE_URL}/blog/${post.slug}`,
+      images: [{ url: `${BASE_URL}${post.coverImage}`, width: 1200, height: 630 }],
+      publishedTime: post.publishedAt,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+    },
+  };
+}
 
 export default async function BlogDetailsPage({ params }: Props) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  // ── NEW: per-post structured data ──
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    image: `${BASE_URL}${post.coverImage}`,
+    datePublished: post.publishedAt,
+    author: { "@type": "Organization", name: "Top Dog Final Expense" },
+    publisher: {
+      "@type": "Organization",
+      name: "Top Dog Final Expense",
+      logo: { "@type": "ImageObject", url: `${BASE_URL}/logo.png` },
+    },
+    mainEntityOfPage: `${BASE_URL}/blog/${post.slug}`,
+  };
+
   return (
     <div className="bg-stone-50 dark:bg-[#0d0d0f] min-h-screen">
+      {/* ── NEW: render the schema, anywhere inside the returned JSX ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lora:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display...');
       `}</style>
+
+      {/* ...rest of your existing JSX stays exactly the same... */}
 
       {/* ── CINEMATIC HERO ── */}
       <div className="relative w-full h-[520px] flex items-end overflow-hidden">
