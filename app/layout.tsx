@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import SiteFooter from "./components/Sitefooter";
+import Header from "./components/Header";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -292,8 +294,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
+
       <body className={poppins.className}>
+                      <Header/>
+
         {children}
+      <SiteFooter/>
 
         {/* ── Google Tag Manager (replace GTM-XXXXXXX) ── */}
         {/* Uncomment when you have your GTM ID */}

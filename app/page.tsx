@@ -40,7 +40,6 @@ export default function HomePage() {
       </a>
 
       <QuizPopup />
-      <Header />
 
       <main id="main-content">
         <Hero />
