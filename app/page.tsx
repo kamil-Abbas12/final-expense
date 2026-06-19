@@ -52,7 +52,6 @@ export default function HomePage() {
         <Blog/>
       </main>
 
-      <SiteFooter />
       <ScrollToTopButton show={showScrollTop} />
     </div>
   );
