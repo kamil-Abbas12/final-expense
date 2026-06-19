@@ -7,6 +7,8 @@ export interface BlogPost {
   coverImage: string;
   publishedAt: string;
   category: string;
+  metaTitle?: string;        
+  metaDescription?: string; 
 }
 
 export const categories = [
@@ -20,6 +22,8 @@ export const blogPosts: BlogPost[] = [
     id: 1,
     slug: "is-final-expense-insurance-worth-it-if-you-already-have-savings",
     title: "Is Final Expense Insurance Worth It If You Already Have Savings?",
+    metaTitle: "Final Expense Insurance vs. Savings: Which Is Smarter?",
+metaDescription: "Think your savings cover funeral costs? Learn how probate delays and inflation can leave families short — and why final expense insurance fills the gap.",
     excerpt:
       "If you have $15,000 or $20,000 sitting in the bank, why pay a monthly premium for a final expense policy? It's a fair question — but there are hidden financial speedbumps that catch many families off guard.",
     content: `
@@ -150,6 +154,8 @@ export const blogPosts: BlogPost[] = [
     id: 2,
     slug: "3-myths-about-final-expense-insurance-that-keep-people-uninsured",
     title: "3 Myths About Final Expense Insurance That Keep People Uninsured",
+    metaTitle: "3 Final Expense Insurance Myths That Cost You Coverage",
+metaDescription: "Think you're uninsurable or it costs too much? These 3 common final expense insurance myths keep seniors uncovered. Get the facts and a free quote.",
     excerpt:
       "Misinformation about final expense insurance stops many people from ever applying — leaving their families exposed to sudden, massive bills. Let's clear the air on the three biggest myths.",
     content: `
@@ -264,6 +270,8 @@ export const blogPosts: BlogPost[] = [
     id: 3,
     slug: "how-final-expense-insurance-works",
     title: "How Final Expense Insurance Works",
+    metaTitle: "How Final Expense Insurance Works | No Medical Exam",
+metaDescription: "Learn how final expense insurance covers funeral costs and medical bills with no medical exam, fixed premiums, and guaranteed acceptance ages 50–85.",
     excerpt:
       "Learn how final expense insurance can protect your loved ones and cover end-of-life costs.",
     content: `
@@ -281,6 +289,8 @@ export const blogPosts: BlogPost[] = [
     id: 4,
     slug: "final-expense-insurance-vs-pre-planning-a-funeral-which-is-smarter",
     title: "Final Expense Insurance vs. Pre-Planning a Funeral: Which Is Smarter?",
+    metaTitle: "Final Expense Insurance vs. Pre-Planning a Funeral",
+metaDescription: "Cash payout or locked-in funeral pricing? Compare final expense insurance and pre-need funeral contracts to find the smarter way to protect your family.",
     excerpt:
       "Both final expense insurance and pre-planned funeral contracts solve the same problem — but in completely different ways. Here's how to figure out which one is the smarter move for your situation.",
     content: `

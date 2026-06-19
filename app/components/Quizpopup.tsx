@@ -170,9 +170,9 @@ function TcpaStep({
           contacted by licensed insurance agents at the number I provide, including via automated dialing systems,
           pre-recorded messages, and/or SMS text messages, even if my number is on a Do Not Call registry. I understand
           that my consent is not a condition of purchase. Message &amp; data rates may apply.{" "}
-          <a href="/privacy" className="text-emerald-600 dark:text-emerald-400 underline hover:text-emerald-700">
-            Privacy Policy
-          </a>
+        <a href="/privacy-policy" className="text-emerald-600 dark:text-emerald-400 underline hover:text-emerald-700">
+  Privacy Policy
+</a>
           .
         </span>
       </label>

@@ -189,42 +189,50 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What is final expense insurance?",
+      name: "Do I need a medical exam to qualify?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Final expense insurance is a type of whole life insurance designed to cover end-of-life costs such as funeral expenses, burial costs, and outstanding medical bills. Coverage typically ranges from $2,000 to $35,000.",
+        text: "No medical exam is required. Final expense insurance is designed to be accessible — eligibility is determined by a few simple health questions, not a physical exam.",
       },
     },
     {
       "@type": "Question",
-      name: "Do I need a medical exam for final expense insurance?",
+      name: "What ages are eligible for coverage?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. Top Dog Final Expense offers guaranteed acceptance policies with no medical exam required. You simply answer a few health questions to determine your plan options.",
+        text: "Most plans are available to applicants between ages 50 and 85. Some carriers extend eligibility to age 89. A licensed agent can help you find the best option for your age.",
       },
     },
     {
       "@type": "Question",
-      name: "What ages qualify for final expense insurance?",
+      name: "How much does final expense coverage cost?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Most final expense insurance plans accept applicants between ages 50 and 85. Some carriers extend coverage to age 89.",
+        text: "Premiums vary based on your age, health history, and desired coverage amount. Plans start as low as $20 per month. Your quote will reflect your specific situation with no obligation.",
       },
     },
     {
       "@type": "Question",
-      name: "How much does final expense insurance cost?",
+      name: "When does my coverage begin?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Premiums typically range from $30 to $150 per month depending on your age, health, and coverage amount. Premiums are fixed and never increase once your policy is issued.",
+        text: "Accidental death coverage begins on day one. Full natural death coverage typically begins immediately for qualified applicants, though some plans include a 2-year graded period for certain health conditions.",
       },
     },
     {
       "@type": "Question",
-      name: "How quickly can I get covered?",
+      name: "Can my premium ever increase?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Coverage can begin the same day you apply in many cases. Get a free quote in 60 seconds by calling 866-963-5898.",
+        text: "No. Once you enroll, your premium is locked in for life. It will never increase regardless of changes in your age or health, and your coverage amount will never decrease.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How does my family receive the benefit?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Upon your passing, your named beneficiary submits a claim with a certified death certificate. Benefits are typically paid directly to the beneficiary within 24–72 hours of claim approval.",
       },
     },
   ],

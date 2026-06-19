@@ -1,10 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// app/privacy-policy/page.tsx
 export const metadata = {
   title: "Privacy Policy | TopDog Final Expense",
   description:
     "Learn how TopDog Final Expense collects, uses, and protects your personal information, including your state privacy rights.",
+  alternates: {
+    canonical: "https://www.finalexpense.topdoglead.com/privacy-policy",
+  },
 };
 
 const faqs = [
