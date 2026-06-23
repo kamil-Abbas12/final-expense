@@ -1,9 +1,8 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Moon, Sun, Phone, ChevronDown } from "lucide-react";
+import { Moon, Sun, Phone } from "lucide-react";
 
 export default function Header() {
   const [dark, setDark] = useState(false);
@@ -38,38 +37,46 @@ export default function Header() {
           : "bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-900"
       }`}
     >
-      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5">
+      <div className="relative mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5">
+        {/* ── LEFT: logo ── */}
         <div className="flex items-center gap-2">
           <Link href="/">
-           <Image
-  src={"/finalexpense.jpg"}
-  alt="TopDog Final Expense logo"
-  width={100}
-  height={80}
-  priority
-/>
+            <Image
+              src={"/finalexpense.jpg"}
+              alt="TopDog Final Expense logo"
+              width={100}
+              height={80}
+              priority
+            />
           </Link>
         </div>
 
-        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-gray-500 dark:text-gray-400">
-  <Link href="/#coverage" className="hover:text-gray-900 dark:hover:text-white transition-colors">
-    Coverage
-  </Link>
+        {/* ── CENTER: dark/light toggle, pinned to true center ── */}
+        <button
+          onClick={toggleDark}
+          aria-label="Toggle dark mode"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-2 rounded-lg text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+        >
+          {dark ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
 
-  <Link href="/#benefits" className="hover:text-gray-900 dark:hover:text-white transition-colors">
-    Benefits
-  </Link>
+        {/* ── RIGHT: menu + phone + CTA ── */}
+        <div className="flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-gray-500 dark:text-gray-400">
+            <Link href="/#coverage" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+              Coverage
+            </Link>
+            <Link href="/#benefits" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+              Benefits
+            </Link>
+            <Link href="/#faq" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+              FAQ
+            </Link>
+            <Link href="/blog" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+              Blog
+            </Link>
+          </nav>
 
-  <Link href="/#faq" className="hover:text-gray-900 dark:hover:text-white transition-colors">
-    FAQ
-  </Link>
-
-  <Link href="/blog" className="hover:text-gray-900 dark:hover:text-white transition-colors">
-    Blog
-  </Link>
-</nav>
-
-        <div className="flex items-center gap-3">
           <a
             href="tel:8669635898"
             className="hidden md:flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
@@ -77,14 +84,6 @@ export default function Header() {
             <Phone size={14} />
             <span>866-963-5898</span>
           </a>
-
-          <button
-            onClick={toggleDark}
-            aria-label="Toggle dark mode"
-            className="p-2 rounded-lg text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
-          >
-            {dark ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
 
           <a
             href="#quote-form"

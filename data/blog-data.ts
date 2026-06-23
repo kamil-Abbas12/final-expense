@@ -544,7 +544,7 @@ metaDescription: "Cash payout or locked-in funeral pricing? Compare final expens
   category: "Final Expense",
 },
 
-];
+].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
  
 export function getPostBySlug(slug: string) {
   return blogPosts.find((post) => post.slug === slug);
