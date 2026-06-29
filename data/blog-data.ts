@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
     id: 1,
     slug: "is-final-expense-insurance-worth-it-if-you-already-have-savings",
     title: "Is Final Expense Insurance Worth It If You Already Have Savings?",
-    metaTitle: "Final Expense Insurance vs. Savings: Which Is Smarter?",
+    metaTitle: "Final Expense Insurance vs. Savings",
 metaDescription: "Think your savings cover funeral costs? Learn how probate delays and inflation can leave families short — and why final expense insurance fills the gap.",
     excerpt:
       "If you have $15,000 or $20,000 sitting in the bank, why pay a monthly premium for a final expense policy? It's a fair question — but there are hidden financial speedbumps that catch many families off guard.",
@@ -154,7 +154,7 @@ metaDescription: "Think your savings cover funeral costs? Learn how probate dela
     id: 2,
     slug: "3-myths-about-final-expense-insurance-that-keep-people-uninsured",
     title: "3 Myths About Final Expense Insurance That Keep People Uninsured",
-    metaTitle: "3 Final Expense Insurance Myths That Cost You Coverage",
+    metaTitle: "3 Myths Keeping Seniors Uninsured",
 metaDescription: "Think you're uninsurable or it costs too much? These 3 common final expense insurance myths keep seniors uncovered. Get the facts and a free quote.",
     excerpt:
       "Misinformation about final expense insurance stops many people from ever applying — leaving their families exposed to sudden, massive bills. Let's clear the air on the three biggest myths.",
@@ -271,7 +271,7 @@ metaDescription: "Think you're uninsurable or it costs too much? These 3 common 
     id: 4,
     slug: "final-expense-insurance-vs-pre-planning-a-funeral-which-is-smarter",
     title: "Final Expense Insurance vs. Pre-Planning a Funeral: Which Is Smarter?",
-    metaTitle: "Final Expense Insurance vs. Pre-Planning a Funeral",
+    metaTitle: "Final Expense Insurance vs. Pre-Planning",
 metaDescription: "Cash payout or locked-in funeral pricing? Compare final expense insurance and pre-need funeral contracts to find the smarter way to protect your family.",
     excerpt:
       "Both final expense insurance and pre-planned funeral contracts solve the same problem — but in completely different ways. Here's how to figure out which one is the smarter move for your situation.",
@@ -442,7 +442,7 @@ metaDescription: "Cash payout or locked-in funeral pricing? Compare final expens
   id: 5,
   slug: "final-expense-insurance-for-veterans-what-benefits-already-exist",
   title: "Final Expense Insurance for Veterans: What Benefits Already Exist?",
-  metaTitle: "Final Expense Insurance for Veterans | VA Burial Benefits Explained",
+  metaTitle: "Final Expense Insurance for Veterans",
   metaDescription:
     "Learn what VA burial and memorial benefits already exist for veterans, where the coverage gap remains, and when private final expense insurance may still help.",
   excerpt:

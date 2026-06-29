@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { blogPosts } from "@/data/blog-data";
 import BlogCard from "../components/BlogCard";
 
-const BASE_URL = "https://www.finalexpense.topdoglead.com";
+const BASE_URL = "https://finalexpense.topdoglead.com";
 
 // ── NEW: page-specific metadata ──
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "Blog | Final Expense Insurance Guides & Tips",
+    title: "Blog | Final Expense Insurance Guides & Tips | TopDog",
     description:
       "Expert guides on final expense insurance, burial costs, and end-of-life financial planning.",
     url: `${BASE_URL}/blog`,

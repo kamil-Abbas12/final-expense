@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { blogPosts, getPostBySlug } from "@/data/blog-data";
 
-const BASE_URL = "https://www.finalexpense.topdoglead.com";
+const BASE_URL = "https://finalexpense.topdoglead.com";
 
 type Props = { params: Promise<{ slug: string }> };
 

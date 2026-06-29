@@ -3,11 +3,11 @@ import Link from "next/link";
 
 // app/terms-of-service/page.tsx
 export const metadata = {
-  title: "Terms of Service | TopDog Final Expense",
+  title: "Terms of Service ",
   description:
     "Read the terms and conditions governing your use of the TopDog Final Expense website and quote services.",
   alternates: {
-    canonical: "https://www.finalexpense.topdoglead.com/terms-of-service",
+    canonical: "https://finalexpense.topdoglead.com/terms-of-service",
   },
 }
 

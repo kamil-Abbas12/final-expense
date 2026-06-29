@@ -19,9 +19,9 @@ export const metadata: Metadata = {
 
   // ── Primary SEO ──────────────────────────────────────────────
   title: {
-    default: "Final Expense Insurance | No Medical Exam | TopDog Final Expense",
-    template: "%s | Top Dog Final Expense",
-  },
+  template: "%s | TopDog",
+  default: "Final Expense Insurance | No Medical Exam | TopDog Final Expense",
+},
   description:
     "Get affordable final expense insurance with no medical exam required. Fixed premiums, guaranteed acceptance for ages 50–85. Free quote in 60 seconds. Call 866-963-5898.",
   keywords: [
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
         url: `${BASE_URL}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Top Dog Final Expense Insurance — Protect Your Family",
+        alt: "Top Dog Final Expense Insurance - Protect Your Family",
         type: "image/jpeg",
       },
     ],
