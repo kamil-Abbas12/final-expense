@@ -12,7 +12,7 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-const BASE_URL = "https://www.finalexpense.topdoglead.com";
+const BASE_URL = "https://finalexpense.topdoglead.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
