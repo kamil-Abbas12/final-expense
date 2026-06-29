@@ -43,6 +43,23 @@ export default function BlogPage() {
         background: "linear-gradient(160deg, #f0fdf7 0%, #ecfdf5 40%, #f8fafc 100%)",
       }}
     >
+        <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogListSchema) }}
+      />
+ <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+              { "@type": "ListItem", position: 2, name: "Blog", item: `${BASE_URL}/blog` },
+            ],
+          }),
+        }}
+      />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600&display=swap');
         .dark .blog-main-page {

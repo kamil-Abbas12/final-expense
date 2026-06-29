@@ -18,7 +18,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
-
   const seoTitle = post.metaTitle ?? post.title;
   const seoDescription = post.metaDescription ?? post.excerpt;
 
@@ -46,6 +45,10 @@ export default async function BlogDetailsPage({ params }: Props) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
+
+  const relatedPosts = blogPosts
+    .filter((p) => p.slug !== post.slug)
+    .slice(0, 3);
 
   // ── NEW: per-post structured data ──
   const articleSchema = {
@@ -169,7 +172,34 @@ export default async function BlogDetailsPage({ params }: Props) {
               "
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
-
+{/* ── RELATED POSTS ── */}
+<div className="mt-16 pt-10 border-t border-gray-200 dark:border-gray-800">
+  <h2
+    className="text-xl font-bold text-gray-900 dark:text-white mb-6"
+    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+  >
+    More Articles
+  </h2>
+  <div className="grid gap-4 sm:grid-cols-3">
+    {relatedPosts.map((related) => (
+      <Link
+        key={related.slug}
+        href={`/blog/${related.slug}`}
+        className="group rounded-xl border border-gray-200 dark:border-gray-800 p-4 hover:border-emerald-400 dark:hover:border-emerald-500 transition-colors"
+      >
+        <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+          {related.category}
+        </span>
+        <p className="mt-2 text-sm font-semibold text-gray-900 dark:text-white leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors line-clamp-2">
+          {related.title}
+        </p>
+        <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+          {related.publishedAt}
+        </p>
+      </Link>
+    ))}
+  </div>
+</div>
             {/* ── CTA CARD ── */}
             <div className="mt-16 rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-600 to-teal-700 p-8 text-white relative">
               <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />

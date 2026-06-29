@@ -264,12 +264,16 @@ export default function RootLayout({
       <head>
         {/* ── Preconnect ── */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
- <link
-    rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-    as="style"
-  />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          as="style"
+        />
         {/* ── Favicons (Next.js App Router convention) ── */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.png" type="image/png" />
@@ -281,7 +285,10 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="TopDog Final Expense" />
+        <meta
+          name="apple-mobile-web-app-title"
+          content="TopDog Final Expense"
+        />
 
         {/* ── Geo targeting ── */}
         <meta name="geo.region" content="US" />
@@ -291,7 +298,9 @@ export default function RootLayout({
         {/* ── JSON-LD Structured Data ── */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
         />
         <script
           type="application/ld+json"
@@ -304,11 +313,15 @@ export default function RootLayout({
       </head>
 
       <body className={poppins.className}>
-                      <Header/>
+        <Header />
 
         {children}
-      <SiteFooter/>
-
+        <SiteFooter />
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="JkhARxLMNh+CptEmB0KYzw"
+          async
+        ></script>
         {/* ── Google Tag Manager (replace GTM-XXXXXXX) ── */}
         {/* Uncomment when you have your GTM ID */}
         {/* 
