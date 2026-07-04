@@ -531,7 +531,7 @@ metaDescription: "Cash payout or locked-in funeral pricing? Compare final expens
   title: "The Reality of Final Expense Payouts: How Fast Does the Money Actually Arrive?",
   metaTitle: "How Fast Does Final Expense Insurance Pay Out?",
   metaDescription:
-    "Final expense insurance claims are often paid within 24 to 72 hours — but only after approval. Learn the 2-year contestability rule, common delays, and how to speed up a claim.",
+    "Final expense claims are typically paid within 24–72 hours after approval. Learn the 2-year contestability rule and how to speed up your claim.",
   excerpt:
     "Funeral homes expect payment, and grief doesn't pause the bills. Here's the unfiltered truth about how fast final expense insurance actually pays out, and what can slow it down.",
   content: `
