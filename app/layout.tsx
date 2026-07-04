@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   default: "Final Expense Insurance | No Medical Exam | TopDog Final Expense",
 },
   description:
-    "Get affordable final expense insurance with no medical exam required. Fixed premiums, guaranteed acceptance for ages 50–85. Free quote in 60 seconds. Call 866-963-5898.",
+    "Affordable final expense insurance, no medical exam. Fixed premiums, guaranteed acceptance ages 50–85. Free quote in 60 sec. Call 866-963-5898.",
   keywords: [
     "final expense insurance",
     "burial insurance",
