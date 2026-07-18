@@ -78,11 +78,11 @@ export default function Header() {
           </nav>
 
           <a
-            href="tel:8669635898"
+            href="tel:6802251305"
             className="hidden md:flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
           >
             <Phone size={14} />
-            <span>866-963-5898</span>
+            <span>(680) 225-1305</span>
           </a>
 
           <a

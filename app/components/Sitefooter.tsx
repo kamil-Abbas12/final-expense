@@ -67,10 +67,10 @@ export default function SiteFooter() {
           <div className="text-sm">
             <p className="mb-1 font-medium text-gray-900 dark:text-white">Speak with an Agent</p>
             <a
-              href="tel:8669635898"
+              href="tel:6802251305"
               className="text-emerald-600 dark:text-emerald-400 hover:underline font-medium text-base"
             >
-              866-963-5898
+              (680) 225-1305
             </a>
             <p className="mt-1 text-xs text-gray-400 dark:text-gray-500">Mon–Fri, 9am–6pm EST</p>
           </div>
