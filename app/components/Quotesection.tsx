@@ -1,20 +1,24 @@
 "use client";
 
-import { useState } from "react";
-import { Phone, Lock, Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Phone, Lock, Loader2, User, Mail, Home, Building2, MapPin, Calendar } from "lucide-react";
 import { useRtbQuote } from "@/lib/hooks/useRtbQuote";
 
 interface QuoteFormData {
   firstName: string;
   lastName: string;
   phone: string;
+  email: string;
+  address: string;
+  city: string;
+  state: string;
   zip: string;
   dob: string;
   coverage: string;
+  preferredTime: string; // add this
   tcpaConsent: boolean;
 }
 
-// Fallback campaign tracking number (used if RTB ping fails or is declined)
 const FALLBACK_CALL_DISPLAY = "(680) 225-1305";
 const FALLBACK_CALL_TEL = "tel:+16802251305";
 
@@ -22,6 +26,30 @@ function formatPhoneDisplay(digits: string) {
   if (digits.length <= 3) return digits;
   if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
   return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
+}
+
+// Same capture pattern as your other forms
+function captureTrackingTokens(): boolean {
+  const leadidToken = document.querySelector<HTMLInputElement>(
+    "#leadid_token, input[name='universal_leadid']"
+  );
+  const hidLeadid = document.getElementById("Hidleadid") as HTMLInputElement | null;
+  const hidTrusted = document.getElementById("hidTrusted") as HTMLInputElement | null;
+  const trustedToken = document.querySelector<HTMLInputElement>(
+    "input[name^='xxTrustedFormCertUrl'], input[id^='xxTrustedFormCertUrl']"
+  );
+
+  let jornayaReady = false;
+
+  if (leadidToken && hidLeadid && leadidToken.value) {
+    hidLeadid.value = leadidToken.value;
+    jornayaReady = true;
+  }
+  if (trustedToken && hidTrusted && trustedToken.value) {
+    hidTrusted.value = trustedToken.value;
+  }
+
+  return jornayaReady;
 }
 
 function CallNowCard() {
@@ -123,6 +151,8 @@ export default function QuoteSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [mode, setMode] = useState<"call" | "form">("call");
+  const [jornayaReady, setJornayaReady] = useState(false);
+  const [formError, setFormError] = useState("");
   const [resultCall, setResultCall] = useState<{ display: string; tel: string }>({
     display: FALLBACK_CALL_DISPLAY,
     tel: FALLBACK_CALL_TEL,
@@ -130,34 +160,129 @@ export default function QuoteSection() {
 
   const { getQuote } = useRtbQuote();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-
-    const form = e.currentTarget;
-    const phoneDigits = (form.elements.namedItem("phone") as HTMLInputElement).value.replace(/\D/g, "");
-    const zip = (form.elements.namedItem("zip") as HTMLInputElement).value;
-
-    const data: QuoteFormData = {
-      firstName: (form.elements.namedItem("firstName") as HTMLInputElement).value,
-      lastName: (form.elements.namedItem("lastName") as HTMLInputElement).value,
-      phone: phoneDigits,
-      zip,
-      dob: (form.elements.namedItem("dob") as HTMLInputElement).value,
-      coverage: (form.elements.namedItem("coverage") as HTMLSelectElement).value,
-      tcpaConsent: (form.elements.namedItem("tcpa") as HTMLInputElement).checked,
+  useEffect(() => {
+    const poll = () => {
+      const ready = captureTrackingTokens();
+      if (ready) setJornayaReady(true);
     };
 
+    poll();
+    const polling = window.setInterval(poll, 500);
+
+    if (!document.querySelector('script[src*="trustedform.js"]')) {
+      const trustedFormField = "xxTrustedFormCertUrl";
+      const provideReferrer = false;
+      const trustedScript = document.createElement("script");
+      trustedScript.type = "text/javascript";
+      trustedScript.async = true;
+      trustedScript.src =
+        "http" +
+        (document.location.protocol === "https:" ? "s" : "") +
+        "://api.trustedform.com/trustedform.js?provide_referrer=" +
+        encodeURIComponent(String(provideReferrer)) +
+        "&field=" +
+        encodeURIComponent(trustedFormField) +
+        "&l=" +
+        new Date().getTime() +
+        Math.random();
+      document.head.appendChild(trustedScript);
+    }
+
+    if (!document.getElementById("LeadiDscript_campaign")) {
+      const leadidScript = document.createElement("script");
+      leadidScript.id = "LeadiDscript_campaign";
+      leadidScript.type = "text/javascript";
+      leadidScript.async = true;
+      leadidScript.src =
+        "//create.lidstatic.com/campaign/372b9fce-b1fd-68e6-0d81-5286de90f4f0.js?snippet_version=2";
+
+      const placeholder = document.getElementById("LeadiDscript");
+      if (placeholder?.parentNode) {
+        placeholder.parentNode.insertBefore(leadidScript, placeholder);
+      } else {
+        document.body.appendChild(leadidScript);
+      }
+    }
+
+    return () => {
+      window.clearInterval(polling);
+    };
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const readyNow = captureTrackingTokens();
+    if (!jornayaReady && !readyNow) {
+      setFormError("Still verifying your session — please wait a moment.");
+      return;
+    }
+    setFormError("");
+    setLoading(true);
+
+    const phoneDigits = (form.elements.namedItem("phone") as HTMLInputElement).value.replace(/\D/g, "");
+    const zip = (form.elements.namedItem("zip") as HTMLInputElement).value;
+    const state = (form.elements.namedItem("state") as HTMLInputElement).value.toUpperCase();
+
+    if (!/^\d{10}$/.test(phoneDigits)) {
+      setFormError("Phone number must be exactly 10 digits.");
+      setLoading(false);
+      return;
+    }
+    if (!/^\d{5}$/.test(zip)) {
+      setFormError("ZIP code must be exactly 5 digits.");
+      setLoading(false);
+      return;
+    }
+    if (!/^[A-Z]{2}$/.test(state)) {
+      setFormError("State must be a 2-letter abbreviation (e.g. NY, CA).");
+      setLoading(false);
+      return;
+    }
+
+    const hidLeadid = form.querySelector<HTMLInputElement>("#Hidleadid");
+    const hidTrusted = form.querySelector<HTMLInputElement>("#hidTrusted");
+
+   const data: QuoteFormData = {
+  firstName: (form.elements.namedItem("firstName") as HTMLInputElement).value,
+  lastName: (form.elements.namedItem("lastName") as HTMLInputElement).value,
+  phone: phoneDigits,
+  email: (form.elements.namedItem("email") as HTMLInputElement).value,
+  address: (form.elements.namedItem("address") as HTMLInputElement).value,
+  city: (form.elements.namedItem("city") as HTMLInputElement).value,
+  state,
+  zip,
+  dob: (form.elements.namedItem("dob") as HTMLInputElement).value,
+  coverage: (form.elements.namedItem("coverage") as HTMLSelectElement).value,
+  preferredTime: (form.elements.namedItem("preferredTime") as HTMLSelectElement).value, // add this
+  tcpaConsent: (form.elements.namedItem("tcpa") as HTMLInputElement).checked,
+};
+
     try {
-      const res = await fetch("/api/quote", {
+      const res = await fetch("/api/submit-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+       body: JSON.stringify({
+  campaign: "Final Expense",
+  firstName: data.firstName,
+  lastName: data.lastName,
+  phone: data.phone,
+  email: data.email,
+  address: data.address,
+  city: data.city,
+  state: data.state,
+  zip: data.zip,
+  dob: data.dob,
+  hasInsurance: data.coverage,
+  preferredTime: data.preferredTime, // was: ""
+  jornayaId: hidLeadid?.value ?? "",
+  trustedFormUrl: hidTrusted?.value ?? "",
+}),
       });
       const result = await res.json();
 
       if (result.success) {
-        // Lead saved — now ping RTB for a live tracking number to offer an immediate call.
         try {
           const rtbRes = await getQuote(`+1${phoneDigits}`, zip);
           if (rtbRes.success && rtbRes.accepted && rtbRes.trackingNumber) {
@@ -172,10 +297,11 @@ export default function QuoteSection() {
         }
         setSubmitted(true);
       } else {
-        alert("Something went wrong. Please try again.");
+        console.error("Submit failed:", result.error);
+        setFormError("Something went wrong. Please try again.");
       }
     } catch {
-      alert("Network error. Please try again.");
+      setFormError("Network error. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -195,7 +321,6 @@ export default function QuoteSection() {
             No obligation, no spam. Call now to speak with a licensed agent, or fill out the form and we&apos;ll reach out.
           </p>
 
-          {/* Mode toggle */}
           <div className="mb-6 flex justify-center gap-2 rounded-full bg-gray-100 dark:bg-gray-800 p-1 max-w-sm mx-auto">
             <button
               type="button"
@@ -261,7 +386,12 @@ export default function QuoteSection() {
             </div>
           ) : (
             <div className="rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 p-8 shadow-sm">
-              <form onSubmit={handleSubmit} className="grid gap-5">
+              <form onSubmit={handleSubmit} className="grid gap-5" noValidate>
+                <input id="leadid_token" name="universal_leadid" type="hidden" defaultValue="" />
+                <input id="Hidleadid" name="Hidleadid" type="hidden" defaultValue="" />
+                <input id="hidTrusted" name="hidTrusted" type="hidden" defaultValue="" />
+                <input id="xxTrustedFormToken_0" name="xxTrustedFormToken_0" type="hidden" defaultValue="" />
+
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label className="mb-1.5 block text-xs font-medium text-gray-700 dark:text-gray-300">
@@ -298,8 +428,71 @@ export default function QuoteSection() {
                       type="tel"
                       name="phone"
                       required
-                      placeholder="(555) 000-0000"
+                      inputMode="numeric"
+                      maxLength={10}
+                      placeholder="10 digit number"
                       className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-4 py-2.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition-all"
+                      onInput={(e) => {
+                        const t = e.target as HTMLInputElement;
+                        t.value = t.value.replace(/\D/g, "").slice(0, 10);
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label className="mb-1.5 block text-xs font-medium text-gray-700 dark:text-gray-300">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="jane@email.com"
+                      className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-4 py-2.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition-all"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="mb-1.5 block text-xs font-medium text-gray-700 dark:text-gray-300">
+                    Street Address
+                  </label>
+                  <input
+                    type="text"
+                    name="address"
+                    required
+                    placeholder="123 Main St"
+                    className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-4 py-2.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition-all"
+                  />
+                </div>
+
+                <div className="grid gap-5 sm:grid-cols-3">
+                  <div>
+                    <label className="mb-1.5 block text-xs font-medium text-gray-700 dark:text-gray-300">
+                      City
+                    </label>
+                    <input
+                      type="text"
+                      name="city"
+                      required
+                      placeholder="Springfield"
+                      className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-4 py-2.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition-all"
+                    />
+                  </div>
+                  <div>
+                    <label className="mb-1.5 block text-xs font-medium text-gray-700 dark:text-gray-300">
+                      State
+                    </label>
+                    <input
+                      type="text"
+                      name="state"
+                      required
+                      maxLength={2}
+                      placeholder="e.g. NY"
+                      className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-4 py-2.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition-all uppercase"
+                      onInput={(e) => {
+                        const t = e.target as HTMLInputElement;
+                        t.value = t.value.replace(/[^a-zA-Z]/g, "").toUpperCase().slice(0, 2);
+                      }}
                     />
                   </div>
                   <div>
@@ -314,6 +507,10 @@ export default function QuoteSection() {
                       maxLength={5}
                       placeholder="e.g. 90210"
                       className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-4 py-2.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition-all"
+                      onInput={(e) => {
+                        const t = e.target as HTMLInputElement;
+                        t.value = t.value.replace(/\D/g, "").slice(0, 5);
+                      }}
                     />
                   </div>
                 </div>
@@ -355,8 +552,26 @@ export default function QuoteSection() {
                     <option value="25000">$25,000</option>
                   </select>
                 </div>
-
-                {/* TCPA Consent */}
+<div>
+  <label
+    htmlFor="preferredTime"
+    className="mb-1.5 block text-xs font-medium text-gray-700 dark:text-gray-300"
+  >
+    Preferred Time to Receive a Call
+  </label>
+  <select
+    id="preferredTime"
+    name="preferredTime"
+    required
+    defaultValue=""
+    className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-4 py-2.5 text-sm text-gray-900 dark:text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition-all"
+  >
+    <option value="" disabled>Select a time</option>
+    <option value="Morning (8am - 12pm)">Morning (8am - 12pm)</option>
+    <option value="Afternoon (12pm - 4pm)">Afternoon (12pm - 4pm)</option>
+    <option value="Evening (4pm - 8pm)">Evening (4pm - 8pm)</option>
+  </select>
+</div>
                 <label className="flex items-start gap-3 text-xs text-gray-500 dark:text-gray-500 cursor-pointer">
                   <input
                     id="tcpa"
@@ -382,13 +597,21 @@ export default function QuoteSection() {
                   </span>
                 </label>
 
+                {formError && <p className="text-xs text-red-500 -mt-2">{formError}</p>}
+
                 <button
                   type="submit"
-                  disabled={loading}
+                  disabled={loading || !jornayaReady}
                   className="w-full rounded-xl cursor-pointer bg-emerald-600 hover:bg-emerald-700 disabled:opacity-60 disabled:cursor-not-allowed py-3.5 text-sm font-medium text-white transition-all shadow-md shadow-emerald-600/20 hover:-translate-y-0.5 active:translate-y-0"
                 >
-                  {loading ? "Submitting..." : "Get My Free Quote →"}
+                  {loading ? "Submitting..." : !jornayaReady ? "Preparing form..." : "Get My Free Quote →"}
                 </button>
+
+                {!jornayaReady && !loading && (
+                  <p className="text-center text-xs text-gray-400 dark:text-gray-500 -mt-3">
+                    Verifying your session — this usually only takes a second or two.
+                  </p>
+                )}
 
                 <p className="text-center text-xs text-gray-400 dark:text-gray-500">
                   By submitting, you agree to be contacted by a licensed agent. No spam, ever.
@@ -398,6 +621,7 @@ export default function QuoteSection() {
           )}
         </div>
       </div>
+      <div id="LeadiDscript" />
     </section>
   );
 }
