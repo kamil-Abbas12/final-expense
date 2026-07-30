@@ -1191,7 +1191,7 @@ metaDescription: "Cash payout or locked-in funeral pricing? Compare final expens
     <p><em><strong>Receiving disability benefits does not automatically close the door on final expense insurance. The real deciding factors are your health condition, your daily living independence, and the type of Social Security benefit you receive.</strong></em></p>
   `,
   coverImage: "/social-security-disability-final-expense-coverage.webp",
-  publishedAt: "July 30, 2026",
+  publishedAt: "July 31, 2026",
   category: "Final Expense",
 },
 
