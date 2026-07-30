@@ -1132,7 +1132,7 @@ metaDescription: "Cash payout or locked-in funeral pricing? Compare final expens
           <tr>
             <th>Coverage Type</th>
             <th>How It Works</th>
-            <th>Health Screening Required</th>
+            <th>Health Screening Required ?</th>
           </tr>
         </thead>
         <tbody>
