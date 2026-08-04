@@ -7,7 +7,6 @@ import {
   forbiddenOriginResponse,
   logRequest,
 } from "@/lib/security";
-import { sendLeadAutoReplyEmail, sendLeadNotificationEmail } from "@/lib/email";
 
 const GOOGLE_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSd8lTKWb3ahBVrvbkBPXDgHU_oG-uVAd7PrCpuPXIZs61qfOw/formResponse";
@@ -120,33 +119,6 @@ export async function POST(req: NextRequest) {
       });
       throw new Error(`Google Forms responded with status ${res.status}`);
     }
-
-    const emailData = {
-      firstName: String(body.firstName ?? ""),
-      lastName: String(body.lastName ?? ""),
-      phone: String(body.phone ?? ""),
-      email: String(body.email ?? ""),
-      address: String(body.address ?? ""),
-      city: String(body.city ?? ""),
-      state,
-      zip,
-      dob: String(body.dob ?? ""),
-      hasInsurance: String(body.hasInsurance ?? ""),
-      preferredTime: String(body.preferredTime ?? ""),
-      ipAddress,
-    };
-
-    Promise.allSettled([
-      sendLeadNotificationEmail(emailData),
-      sendLeadAutoReplyEmail(emailData),
-    ]).then((results) => {
-      results.forEach((r, i) => {
-        if (r.status === "rejected") {
-          const label = i === 0 ? "lead notification" : "auto-reply";
-          console.error(`Email send failed (${label}):`, r.reason);
-        }
-      });
-    });
 
     logRequest({
       route: ROUTE,
