@@ -1194,8 +1194,7 @@ metaDescription: "Cash payout or locked-in funeral pricing? Compare final expens
   publishedAt: "July 31, 2026",
   category: "Final Expense",
 },
-// Add this object to the `blogPosts` array in data/blog-data.ts
-// (insert it anywhere in the array — the array is auto-sorted by publishedAt)
+
 
 {
   id: 11,
@@ -1341,6 +1340,133 @@ metaDescription: "Cash payout or locked-in funeral pricing? Compare final expens
   `,
   coverImage: "/final-expense-insurance-protects-children-from-debt.webp",
   publishedAt: "August 4, 2026",
+  category: "Final Expense",
+},
+{
+  id: 12,
+  slug: "living-benefits-final-expense-insurance-terminal-illness",
+  title: "How Living Benefits in Final Expense Policies Can Help During Terminal Illness",
+  metaTitle: "Living Benefits in Final Expense Insurance Explained",
+  metaDescription:
+    "Learn how Accelerated Death Benefit riders let final expense policyholders access cash while still alive after a terminal diagnosis, and what to know before tapping in.",
+  excerpt:
+    "Final expense insurance isn't just for after you're gone. A living benefits rider can put cash in your hands the moment a terminal diagnosis arrives — here's how it works and what it costs you.",
+  content: `
+    <p>When people hear "final expense insurance," they usually think of one thing: covering burial costs, cremation, or a memorial service after they pass away. But end-of-life planning isn't always as simple as a single day.</p>
+
+    <p>If a policyholder receives a terminal diagnosis, the financial pressure doesn't wait until the end. Medical bills mount quickly, specialized care gets expensive, and everyday living costs don't stop. That is where living benefits &mdash; often called Accelerated Death Benefit (ADB) riders &mdash; come into play.</p>
+
+    <p>Understanding how living benefits work can mean the difference between draining a family&rsquo;s hard-earned savings and navigating a difficult diagnosis with financial dignity.</p>
+
+    <h2 style="font-size:1.5rem;font-weight:700;margin-top:2rem;margin-bottom:0.75rem;color:inherit;font-family:'Playfair Display',Georgia,serif;">What Are Living Benefits in Final Expense Insurance?</h2>
+
+    <p>A living benefit is an optional feature or built-in rider attached to a final expense policy that allows the policyholder to access a portion of their payout while they are still alive, provided they meet specific medical criteria.</p>
+
+    <p>In most cases, this rider is triggered by a terminal illness diagnosis &mdash; typically defined by a physician as a condition expected to result in death within 12 to 24 months (depending on the insurer and policy terms).</p>
+
+    <p>Instead of waiting for the death benefit to pay out later, the insured person can request an advance on those funds to use immediately.</p>
+
+    <h2 style="font-size:1.5rem;font-weight:700;margin-top:2rem;margin-bottom:0.75rem;color:inherit;font-family:'Playfair Display',Georgia,serif;">4 Practical Ways Living Benefits Help During a Terminal Diagnosis</h2>
+
+    <h3 style="font-size:1.15rem;font-weight:700;margin-top:1.5rem;margin-bottom:0.5rem;color:inherit;">1. Covering Unplanned Medical Bills and Treatments</h3>
+    <p>Even with decent health coverage or Medicare, out-of-pocket medical costs can escalate rapidly. Experimental treatments, specialized home nursing, prescription co-pays, and medical equipment often aren't fully covered. Living benefits provide immediate cash liquidity to pay these bills as they arrive, preventing debt from falling on family members.</p>
+
+    <h3 style="font-size:1.15rem;font-weight:700;margin-top:1.5rem;margin-bottom:0.5rem;color:inherit;">2. Replacing Lost Income and Covering Daily Living Expenses</h3>
+    <p>When serious illness sets in, working often becomes impossible. At the same time, family members may need to reduce their working hours to step into caregiving roles. Funds accessed through an accelerated death benefit can be used for anything from mortgage payments and utilities to grocery delivery and home modifications like wheelchair ramps.</p>
+
+    <h3 style="font-size:1.15rem;font-weight:700;margin-top:1.5rem;margin-bottom:0.5rem;color:inherit;">3. Securing In-Home Care or Hospice Support</h3>
+    <p>Quality end-of-life care should prioritize comfort and dignity. Living benefit payouts allow families to hire dedicated private-duty nurses, end-of-life doulas, or specialized hospice care without waiting on insurance claim approvals or lengthy reimbursement cycles.</p>
+
+    <h3 style="font-size:1.15rem;font-weight:700;margin-top:1.5rem;margin-bottom:0.5rem;color:inherit;">4. Fulfilling Final Wishes and Easing Stress</h3>
+    <p>Beyond logistics, facing a terminal illness is deeply emotional. Having access to funds allows individuals to settle affairs on their own terms &mdash; whether that means arranging a final family gathering, taking a meaningful trip, or prepaying funeral arrangements in advance so loved ones don't have to make tough financial decisions while grieving.</p>
+
+    <h2 style="font-size:1.5rem;font-weight:700;margin-top:2rem;margin-bottom:0.75rem;color:inherit;font-family:'Playfair Display',Georgia,serif;">Important Things to Know Before Accessing Living Benefits</h2>
+
+    <p>While living benefits offer invaluable flexibility, it's essential to understand how tapping into them affects the overall policy. Here's a quick look at how a typical acceleration plays out:</p>
+
+    <style>
+      .living-benefits-table { width:100%; border-collapse:collapse; font-size:0.9rem; text-align:left; }
+      .living-benefits-table thead tr th { background-color:#059669; color:#ffffff; padding:0.75rem 1rem; font-weight:700; border:1px solid #d1fae5; }
+      .living-benefits-table tbody tr:nth-child(odd) { background-color:#f0fdf4; }
+      .living-benefits-table tbody tr:nth-child(even) { background-color:#ffffff; }
+      .living-benefits-table tbody td { padding:0.75rem 1rem; border:1px solid #d1fae5; vertical-align:top; }
+      .living-benefits-table tbody td:first-child { font-weight:700; white-space:nowrap; }
+
+      @media (max-width: 640px) {
+        .living-benefits-table-wrapper { overflow-x: visible !important; }
+        .living-benefits-table thead { display:none; }
+        .living-benefits-table, .living-benefits-table tbody, .living-benefits-table tr, .living-benefits-table td { display:block; width:100%; }
+        .living-benefits-table tbody tr {
+          margin-bottom:1rem;
+          border:1px solid #d1fae5;
+          border-radius:12px;
+          overflow:hidden;
+          box-shadow:0 1px 6px rgba(0,0,0,0.06);
+        }
+        .living-benefits-table tbody tr:nth-child(odd),
+        .living-benefits-table tbody tr:nth-child(even) { background-color:#ffffff; }
+        .living-benefits-table tbody td { border:none; border-bottom:1px solid #d1fae5; padding:0.65rem 0.9rem; }
+        .living-benefits-table tbody td:last-child { border-bottom:none; }
+        .living-benefits-table tbody td:first-child {
+          background-color:#059669;
+          color:#ffffff;
+          font-weight:700;
+          font-size:0.85rem;
+          letter-spacing:0.02em;
+          white-space:normal;
+        }
+        .living-benefits-table tbody td:not(:first-child)::before {
+          display:block;
+          font-size:0.7rem;
+          font-weight:700;
+          text-transform:uppercase;
+          letter-spacing:0.08em;
+          color:#059669;
+          margin-bottom:0.3rem;
+        }
+        .living-benefits-table tbody td:nth-child(2)::before { content:"Amount"; }
+      }
+    </style>
+
+    <div class="living-benefits-table-wrapper" style="overflow-x:auto;margin:1.5rem 0;">
+      <table class="living-benefits-table">
+        <thead>
+          <tr>
+            <th>Example Scenario</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Original Policy Face Value</td>
+            <td>$20,000</td>
+          </tr>
+          <tr>
+            <td>Accelerated (Living Benefit) at 50%</td>
+            <td>$10,000 advanced now</td>
+          </tr>
+          <tr>
+            <td>Remaining for Beneficiaries Later</td>
+            <td>$10,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul style="list-style-type:disc;padding-left:1.5rem;margin:1rem 0;">
+      <li style="margin-bottom:0.5rem;"><strong>Reduced Death Benefit:</strong> Any amount pulled out as a living benefit reduces the final payout left for beneficiaries.</li>
+      <li style="margin-bottom:0.5rem;"><strong>Administrative Fees or Discount Rates:</strong> Insurers may deduct a small administrative fee or apply an actuarial discount when advancing money early.</li>
+      <li style="margin-bottom:0.5rem;"><strong>Impact on Government Assistance:</strong> Receiving a lump-sum payout could temporarily impact eligibility for income-based public assistance programs like Medicaid or Supplemental Security Income (SSI).</li>
+    </ul>
+
+    <hr style="border:none;border-top:1px solid #d1fae5;margin:2rem 0;" />
+
+    <h2 style="font-size:1.5rem;font-weight:700;margin-top:2rem;margin-bottom:0.75rem;color:inherit;font-family:'Playfair Display',Georgia,serif;">The Takeaway</h2>
+
+    <p><em><strong>Final expense insurance is designed to protect families from financial shock during life's hardest moments. By choosing a policy that includes a terminal illness living benefit rider, that protection extends beyond funeral costs &mdash; providing peace of mind, relief, and independence when it is needed most.</strong></em></p>
+  `,
+  coverImage: "/living-benefits-final-expense-terminal-illness.webp",
+  publishedAt: "August 12, 2026",
   category: "Final Expense",
 },
 ].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
