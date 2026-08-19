@@ -62,17 +62,17 @@ export default function Header() {
           : "bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-900"
       }`}
     >
-      <div className="relative mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-5">
+            <div className="relative mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 sm:px-5">
         {/* ── LEFT: logo ── */}
         <div className="flex min-w-0 shrink-0 items-center gap-2">
           <Link href="/" className="flex items-center" onClick={() => setMenuOpen(false)}>
             <Image
               src={"/finalexpense.jpg"}
               alt="TopDog Final Expense logo"
-              width={100}
-              height={80}
+              width={160}
+              height={128}
               priority
-              className="h-10 w-auto sm:h-12 shrink-0"
+              className="h-16 w-auto sm:h-20 shrink-0"
             />
           </Link>
         </div>
