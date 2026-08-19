@@ -1469,6 +1469,128 @@ metaDescription: "Cash payout or locked-in funeral pricing? Compare final expens
   publishedAt: "August 12, 2026",
   category: "Final Expense",
 },
+{
+  id: 13,
+  slug: "why-every-senior-needs-a-final-expense-plan-before-turning-65",
+  title: "Why Every Senior Needs a Final Expense Plan Before Turning 65",
+  metaTitle: "Final Expense Insurance Before Turning 65",
+  metaDescription:
+    "Turning 65 triggers higher final expense insurance rates. Learn why locking in a policy before 65 saves money, avoids waiting periods, and protects your family.",
+  excerpt:
+    "Turning 65 is treated as the big milestone for Medicare and retirement — but one detail often gets pushed aside: securing a final expense policy. Here's why waiting past 65 is one of the costliest mistakes seniors make.",
+  content: `
+    <p>Turning 65 is usually treated as the big milestone. It&rsquo;s when Medicare kicks in, retirement plans shift into gear, and most people start checking off their long-term financial to-do lists. But there&rsquo;s one detail that frequently gets pushed aside until much later: securing a final expense policy.</p>
+
+    <p>Waiting until after 65 to handle end-of-life planning is one of the most common and costly financial mistakes seniors make. Here is why taking care of a final expense plan before reaching that 65-year mark makes all the difference.</p>
+
+    <h2 style="font-size:1.5rem;font-weight:700;margin-top:2rem;margin-bottom:0.75rem;color:inherit;font-family:'Playfair Display',Georgia,serif;">Rates Take a Big Jump at 65</h2>
+
+    <p>Insurance premiums are directly tied to age. While rates creep up slightly every year in your late 50s and early 60s, turning 65 is a major threshold for insurance underwriters.</p>
+
+    <p>Once you cross that line, base rates increase noticeably. By locking in a whole life final expense policy at 62, 63, or 64, you guarantee a lower monthly payment for the rest of your life.</p>
+
+    <h2 style="font-size:1.5rem;font-weight:700;margin-top:2rem;margin-bottom:0.75rem;color:inherit;font-family:'Playfair Display',Georgia,serif;">Health Can Change Overnight</h2>
+
+    <p>Final expense policies are known for having simplified underwriting, meaning no mandatory medical exams in most cases. However, you still have to answer basic health questions.</p>
+
+    <p>Health conditions tend to accumulate faster as we age. A surprise diagnosis, a prescription change, or a sudden mobility issue after 65 can instantly limit your options, forcing you into simplified &ldquo;graded&rdquo; or &ldquo;guaranteed issue&rdquo; policies that carry higher costs and waiting periods before full coverage kicks in. Locking in coverage while your medical history is cleaner keeps your options wide open.</p>
+
+    <h2 style="font-size:1.5rem;font-weight:700;margin-top:2rem;margin-bottom:0.75rem;color:inherit;font-family:'Playfair Display',Georgia,serif;">Medicare Doesn&rsquo;t Cover Final Expenses</h2>
+
+    <p>A very common myth is that Medicare or Social Security will handle funeral costs.</p>
+
+    <ul style="list-style-type:disc;padding-left:1.5rem;margin:1rem 0;">
+      <li style="margin-bottom:0.5rem;"><strong>Social Security</strong> pays a one-time lump-sum death benefit of just $255 to eligible surviving spouses.</li>
+      <li style="margin-bottom:0.5rem;"><strong>Medicare</strong> covers medical care and short-term recovery. It pays zero toward funeral arrangements, cremation, or outstanding personal debts.</li>
+    </ul>
+
+    <p>With the average traditional funeral now costing between $8,000 and $12,000, relying on government benefits leaves a massive financial gap for loved ones to fill.</p>
+
+    <style>
+      .before65-table { width:100%; border-collapse:collapse; font-size:0.9rem; text-align:left; }
+      .before65-table thead tr th { background-color:#059669; color:#ffffff; padding:0.75rem 1rem; font-weight:700; border:1px solid #d1fae5; }
+      .before65-table tbody tr:nth-child(odd) { background-color:#f0fdf4; }
+      .before65-table tbody tr:nth-child(even) { background-color:#ffffff; }
+      .before65-table tbody td { padding:0.75rem 1rem; border:1px solid #d1fae5; vertical-align:top; }
+      .before65-table tbody td:first-child { font-weight:700; white-space:nowrap; }
+
+      @media (max-width: 640px) {
+        .before65-table-wrapper { overflow-x: visible !important; }
+        .before65-table thead { display:none; }
+        .before65-table, .before65-table tbody, .before65-table tr, .before65-table td { display:block; width:100%; }
+        .before65-table tbody tr {
+          margin-bottom:1rem;
+          border:1px solid #d1fae5;
+          border-radius:12px;
+          overflow:hidden;
+          box-shadow:0 1px 6px rgba(0,0,0,0.06);
+        }
+        .before65-table tbody tr:nth-child(odd),
+        .before65-table tbody tr:nth-child(even) { background-color:#ffffff; }
+        .before65-table tbody td { border:none; border-bottom:1px solid #d1fae5; padding:0.65rem 0.9rem; }
+        .before65-table tbody td:last-child { border-bottom:none; }
+        .before65-table tbody td:first-child {
+          background-color:#059669;
+          color:#ffffff;
+          font-weight:700;
+          font-size:0.85rem;
+          letter-spacing:0.02em;
+          white-space:normal;
+        }
+        .before65-table tbody td:not(:first-child)::before {
+          display:block;
+          font-size:0.7rem;
+          font-weight:700;
+          text-transform:uppercase;
+          letter-spacing:0.08em;
+          color:#059669;
+          margin-bottom:0.3rem;
+        }
+        .before65-table tbody td:nth-child(2)::before { content:"What It Covers"; }
+      }
+    </style>
+
+    <div class="before65-table-wrapper" style="overflow-x:auto;margin:1.5rem 0;">
+      <table class="before65-table">
+        <thead>
+          <tr>
+            <th>Benefit Source</th>
+            <th>What It Covers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Social Security</td>
+            <td>One-time $255 lump-sum death benefit to an eligible surviving spouse. Not enough to cover flowers, let alone a funeral.</td>
+          </tr>
+          <tr>
+            <td>Medicare</td>
+            <td>Medical care and short-term recovery only. Pays nothing toward funeral arrangements, cremation, or personal debts.</td>
+          </tr>
+          <tr>
+            <td>Final Expense Policy</td>
+            <td>Tax-free cash paid directly to your beneficiary, often within days of filing a claim.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="font-size:1.5rem;font-weight:700;margin-top:2rem;margin-bottom:0.75rem;color:inherit;font-family:'Playfair Display',Georgia,serif;">Protecting Your Children from Immediate Cash Strain</h2>
+
+    <p>When someone passes away, their bank accounts are often frozen temporarily during probate. Even if you leave behind assets or a home, your family cannot immediately liquidate them to pay a funeral director. Most funeral homes require payment or a verified insurance policy assignment up front before services begin.</p>
+
+    <p>A dedicated final expense policy pays out quickly, often within days of filing a claim, giving your kids the liquid cash they need right when they need it, without forcing them to dip into savings or max out credit cards.</p>
+
+    <hr style="border:none;border-top:1px solid #d1fae5;margin:2rem 0;" />
+
+    <h2 style="font-size:1.5rem;font-weight:700;margin-top:2rem;margin-bottom:0.75rem;color:inherit;font-family:'Playfair Display',Georgia,serif;">The Bottom Line</h2>
+
+    <p><em><strong>Final expense insurance isn't about planning for the end today; it's about locking in the lowest possible rate so you never have to think about it again. Taking care of it before your 65th birthday ensures maximum affordability, zero waiting periods, and total peace of mind for the years ahead.</strong></em></p>
+  `,
+  coverImage: "/final-expense-insurance-before-turning-65.webp",
+  publishedAt: "August 19, 2026",
+  category: "Final Expense",
+},
 ].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
  
 export function getPostBySlug(slug: string) {
