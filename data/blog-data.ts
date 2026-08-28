@@ -1733,7 +1733,7 @@ metaDescription: "Cash payout or locked-in funeral pricing? Compare final expens
     <p><em><strong>If you've been putting off final expense coverage, don't wait for your next birthday or your next doctor's checkup. Getting a quote now isn't about rushing into a decision. It's about locking in the lowest possible price you will ever be offered for the rest of your life.</strong></em></p>
   `,
   coverImage: "/final-expense-insurance-age-health-premium-increase.webp",
-  publishedAt: "August 27, 2026",
+  publishedAt: "August 28, 2026",
   category: "Final Expense",
 },
 ].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
