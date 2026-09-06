@@ -1,41 +1,87 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { blogPosts } from "@/data/blog-data";
 import BlogCard from "../components/BlogCard";
 
 const BASE_URL = "https://finalexpense.topdoglead.com";
+const POSTS_PER_PAGE = 9;
 
-// ── NEW: page-specific metadata ──
-export const metadata: Metadata = {
-  title: "Blog | Final Expense Insurance Guides & Tips",
-  description:
-    "Expert guides on final expense insurance, burial costs, and end-of-life financial planning. Free resources to help you protect your family.",
-  alternates: {
-    canonical: `${BASE_URL}/blog`,
-  },
-  openGraph: {
-    type: "website",
-    title: "Blog | Final Expense Insurance Guides & Tips | TopDog",
+// ── Page-specific metadata, now aware of pagination ──
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { page?: string };
+}): Promise<Metadata> {
+  const page = Math.max(1, parseInt(searchParams.page ?? "1", 10) || 1);
+  const totalPages = Math.max(1, Math.ceil(blogPosts.length / POSTS_PER_PAGE));
+  const canonicalPage = Math.min(page, totalPages);
+
+  const canonicalUrl =
+    canonicalPage === 1 ? `${BASE_URL}/blog` : `${BASE_URL}/blog?page=${canonicalPage}`;
+
+  const title =
+    canonicalPage === 1
+      ? "Blog | Final Expense Insurance Guides & Tips"
+      : `Blog | Final Expense Insurance Guides & Tips (Page ${canonicalPage})`;
+
+  return {
+    title,
     description:
-      "Expert guides on final expense insurance, burial costs, and end-of-life financial planning.",
+      "Expert guides on final expense insurance, burial costs, and end-of-life financial planning. Free resources to help you protect your family.",
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      type: "website",
+      title: "Blog | Final Expense Insurance Guides & Tips | TopDog",
+      description:
+        "Expert guides on final expense insurance, burial costs, and end-of-life financial planning.",
+      url: canonicalUrl,
+    },
+    // Page 1 stays fully indexable. Later pages are indexable too (they contain
+    // unique posts) but we keep them out of priority signals via canonical above.
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
+
+// ── Blog collection schema, lists every post for Google (unaffected by pagination) ──
+function getBlogListSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Top Dog Final Expense Blog",
     url: `${BASE_URL}/blog`,
-  },
-};
+    blogPost: blogPosts.map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      url: `${BASE_URL}/blog/${post.slug}`,
+      datePublished: post.publishedAt,
+    })),
+  };
+}
 
-// ── NEW: Blog collection schema, lists every post for Google ──
-const blogListSchema = {
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  name: "Top Dog Final Expense Blog",
-  url: `${BASE_URL}/blog`,
-  blogPost: blogPosts.map((post) => ({
-    "@type": "BlogPosting",
-    headline: post.title,
-    url: `${BASE_URL}/blog/${post.slug}`,
-    datePublished: post.publishedAt,
-  })),
-};
+export default function BlogPage({
+  searchParams,
+}: {
+  searchParams: { page?: string };
+}) {
+  const totalPages = Math.max(1, Math.ceil(blogPosts.length / POSTS_PER_PAGE));
+  const requestedPage = parseInt(searchParams.page ?? "1", 10) || 1;
+  const currentPage = Math.min(Math.max(1, requestedPage), totalPages);
 
-export default function BlogPage() {
+  const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+  const paginatedPosts = blogPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
+
+  const blogListSchema = getBlogListSchema();
+
+  const prevHref = currentPage > 1
+    ? currentPage - 1 === 1 ? "/blog" : `/blog?page=${currentPage - 1}`
+    : null;
+  const nextHref = currentPage < totalPages ? `/blog?page=${currentPage + 1}` : null;
+
   return (
     <div
       className="min-h-screen"
@@ -43,11 +89,15 @@ export default function BlogPage() {
         background: "linear-gradient(160deg, #f0fdf7 0%, #ecfdf5 40%, #f8fafc 100%)",
       }}
     >
-        <script
+      {/* rel=prev / rel=next hints for crawlers navigating pagination */}
+      {prevHref && <link rel="prev" href={`${BASE_URL}${prevHref}`} />}
+      {nextHref && <link rel="next" href={`${BASE_URL}${nextHref}`} />}
+
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogListSchema) }}
       />
- <script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -82,31 +132,22 @@ export default function BlogPage() {
       >
         {/* ── HERO BANNER ── */}
         <div className="relative w-full h-[480px] flex items-end overflow-hidden">
-          {/* photo */}
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: "url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1600&q=80')" }}
           />
-
-          {/* dark scrim */}
           <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/95 via-emerald-950/50 to-black/20" />
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/70 via-emerald-950/20 to-transparent" />
-
-          {/* dot overlay on photo */}
           <div className="blog-hero-dots absolute inset-0 opacity-100" />
-
-          {/* floating accent blobs */}
           <div className="absolute top-16 right-20 w-64 h-64 rounded-full bg-emerald-400/10 blur-3xl pointer-events-none" />
           <div className="absolute top-8 right-40 w-40 h-40 rounded-full bg-teal-400/10 blur-2xl pointer-events-none" />
 
-          {/* badge */}
           <span className="absolute top-10 left-10 inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-400/40 text-emerald-200 text-[11px] font-bold tracking-[0.22em] uppercase px-4 py-1.5 rounded-full backdrop-blur-md shadow">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             Insights &amp; Guides
           </span>
 
           <div className="relative z-10 max-w-5xl mx-auto px-8 pb-16 w-full">
-            {/* eyebrow */}
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-8 bg-emerald-400/70" />
               <span className="text-emerald-300 text-xs font-semibold tracking-widest uppercase">
@@ -128,7 +169,6 @@ export default function BlogPage() {
               the world of final expense insurance.
             </p>
 
-            {/* stats row */}
             <div className="flex items-center gap-6 mt-8">
               {[
                 { val: `${blogPosts.length}+`, label: "Articles" },
@@ -153,7 +193,6 @@ export default function BlogPage() {
 
         {/* ── POSTS SECTION ── */}
         <div className="bg-white dark:bg-gray-950 relative">
-          {/* subtle grid texture */}
           <div
             className="absolute inset-0 opacity-[0.025] dark:opacity-[0.04] pointer-events-none"
             style={{
@@ -178,14 +217,70 @@ export default function BlogPage() {
                     Browse the Collection
                   </h2>
                 </div>
-                
+
+                {totalPages > 1 && (
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    Page {currentPage} of {totalPages}
+                  </p>
+                )}
               </div>
 
               <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                {blogPosts.map((post, i) => (
+                {paginatedPosts.map((post, i) => (
                   <BlogCard key={post.id} post={post} index={i} accent="green" />
                 ))}
               </div>
+
+              {/* ── PAGINATION CONTROLS ── */}
+              {totalPages > 1 && (
+                <nav
+                  aria-label="Blog pagination"
+                  className="flex items-center justify-center gap-2 mt-16"
+                >
+                  <Link
+                    href={prevHref ?? "#"}
+                    aria-disabled={!prevHref}
+                    className={`px-4 py-2 rounded-full text-sm font-semibold border transition ${
+                      prevHref
+                        ? "border-emerald-500 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/30"
+                        : "border-gray-200 text-gray-300 dark:text-gray-600 pointer-events-none"
+                    }`}
+                  >
+                    ← Previous
+                  </Link>
+
+                  {Array.from({ length: totalPages }, (_, idx) => idx + 1).map((pageNum) => {
+                    const href = pageNum === 1 ? "/blog" : `/blog?page=${pageNum}`;
+                    const isActive = pageNum === currentPage;
+                    return (
+                      <Link
+                        key={pageNum}
+                        href={href}
+                        aria-current={isActive ? "page" : undefined}
+                        className={`w-9 h-9 flex items-center justify-center rounded-full text-sm font-semibold transition ${
+                          isActive
+                            ? "bg-emerald-600 text-white"
+                            : "text-gray-600 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/30"
+                        }`}
+                      >
+                        {pageNum}
+                      </Link>
+                    );
+                  })}
+
+                  <Link
+                    href={nextHref ?? "#"}
+                    aria-disabled={!nextHref}
+                    className={`px-4 py-2 rounded-full text-sm font-semibold border transition ${
+                      nextHref
+                        ? "border-emerald-500 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/30"
+                        : "border-gray-200 text-gray-300 dark:text-gray-600 pointer-events-none"
+                    }`}
+                  >
+                    Next →
+                  </Link>
+                </nav>
+              )}
             </div>
           </section>
         </div>

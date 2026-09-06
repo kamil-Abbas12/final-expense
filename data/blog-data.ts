@@ -1895,7 +1895,7 @@ metaDescription: "Cash payout or locked-in funeral pricing? Compare final expens
     <p><em><strong>Taking an hour to choose a small policy, update a bank beneficiary, and write down your preferences eliminates the financial burden from your family's shoulders entirely.</strong></em></p>
   `,
   coverImage: "/why-do-so-many-families-go-broke-after-a-funeral.webp",
-  publishedAt: "September 3, 2026",
+  publishedAt: "September 2, 2026",
   category: "Final Expense",
 },
 ].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());

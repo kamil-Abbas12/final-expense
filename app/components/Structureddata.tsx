@@ -2,7 +2,7 @@
 // Renders: Insurance product schema, FAQ schema, LocalBusiness schema, BreadcrumbList.
 // These unlock star ratings, FAQ dropdowns, and knowledge panel entries in SERPs.
 
-const BASE_URL = "https://www.finalexpense.topdoglead.com";
+const BASE_URL = "https://finalexpense.topdoglead.com";
 
 export default function StructuredData() {
   const organizationSchema = {
