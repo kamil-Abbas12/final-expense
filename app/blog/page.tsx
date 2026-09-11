@@ -10,9 +10,10 @@ const POSTS_PER_PAGE = 9;
 export async function generateMetadata({
   searchParams,
 }: {
-  searchParams: { page?: string };
+  searchParams: Promise<{ page?: string }>;
 }): Promise<Metadata> {
-  const page = Math.max(1, parseInt(searchParams.page ?? "1", 10) || 1);
+  const { page: pageParam } = await searchParams;
+  const page = Math.max(1, parseInt(pageParam ?? "1", 10) || 1);
   const totalPages = Math.max(1, Math.ceil(blogPosts.length / POSTS_PER_PAGE));
   const canonicalPage = Math.min(page, totalPages);
 
@@ -63,13 +64,15 @@ function getBlogListSchema() {
   };
 }
 
-export default function BlogPage({
+export default async function BlogPage({
   searchParams,
 }: {
-  searchParams: { page?: string };
+  searchParams: Promise<{ page?: string }>;
 }) {
+  const { page: pageParam } = await searchParams;
+
   const totalPages = Math.max(1, Math.ceil(blogPosts.length / POSTS_PER_PAGE));
-  const requestedPage = parseInt(searchParams.page ?? "1", 10) || 1;
+  const requestedPage = parseInt(pageParam ?? "1", 10) || 1;
   const currentPage = Math.min(Math.max(1, requestedPage), totalPages);
 
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
@@ -77,9 +80,12 @@ export default function BlogPage({
 
   const blogListSchema = getBlogListSchema();
 
-  const prevHref = currentPage > 1
-    ? currentPage - 1 === 1 ? "/blog" : `/blog?page=${currentPage - 1}`
-    : null;
+  const prevHref =
+    currentPage > 1
+      ? currentPage - 1 === 1
+        ? "/blog"
+        : `/blog?page=${currentPage - 1}`
+      : null;
   const nextHref = currentPage < totalPages ? `/blog?page=${currentPage + 1}` : null;
 
   return (

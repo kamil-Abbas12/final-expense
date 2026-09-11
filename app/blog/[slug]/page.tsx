@@ -46,9 +46,15 @@ export default async function BlogDetailsPage({ params }: Props) {
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
-  const relatedPosts = blogPosts
-    .filter((p) => p.slug !== post.slug)
-    .slice(0, 3);
+const currentIndex = blogPosts.findIndex((p) => p.slug === post.slug);
+const ring = [1, 2, 3, 4, 5].map(
+  (offset) => blogPosts[(currentIndex + offset) % blogPosts.length]
+);
+const sameCategory = ring.filter((p) => p.category === post.category);
+const relatedPosts = [
+  ...sameCategory,
+  ...ring.filter((p) => !sameCategory.includes(p)),
+].slice(0, 3);
 
   // ── NEW: per-post structured data ──
   const articleSchema = {
