@@ -5,6 +5,8 @@ import BlogCard from "../components/BlogCard";
 
 const BASE_URL = "https://finalexpense.topdoglead.com";
 const POSTS_PER_PAGE = 9;
+// Static OG/Twitter image — served from /public/og-image.jpg
+const OG_IMAGE_URL = `${BASE_URL}/og-image.jpg`;
 
 // ── Page-specific metadata, now aware of pagination ──
 export async function generateMetadata({
@@ -25,19 +27,35 @@ export async function generateMetadata({
       ? "Blog | Final Expense Insurance Guides & Tips"
       : `Blog | Final Expense Insurance Guides & Tips (Page ${canonicalPage})`;
 
+  const description =
+    "Expert guides on final expense insurance, burial costs, and end-of-life financial planning. Free resources to help you protect your family.";
+
   return {
     title,
-    description:
-      "Expert guides on final expense insurance, burial costs, and end-of-life financial planning. Free resources to help you protect your family.",
+    description,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
       type: "website",
       title: "Blog | Final Expense Insurance Guides & Tips | TopDog",
-      description:
-        "Expert guides on final expense insurance, burial costs, and end-of-life financial planning.",
+      description,
       url: canonicalUrl,
+      siteName: "TopDog Final Expense",
+      images: [
+        {
+          url: OG_IMAGE_URL,
+          width: 1200,
+          height: 630,
+          alt: "TopDog Final Expense — Blog & Guides for Families",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Blog | Final Expense Insurance Guides & Tips | TopDog",
+      description,
+      images: [OG_IMAGE_URL],
     },
     // Page 1 stays fully indexable. Later pages are indexable too (they contain
     // unique posts) but we keep them out of priority signals via canonical above.
